@@ -1,0 +1,285 @@
+name: 'Patient Profile'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/getProfile
+    metadata:
+      groupName: 'Patient Profile'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Patient Profile'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "status": true,
+           "statusCode": 200,
+           "message": "Profile fetched successfully",
+           "data": {
+               "id": 3,
+               "name": "John Doe",
+               "gender": "Male",
+               "age": "2008-01-26",
+               "email": "john@yopmail.com",
+               "phone": "8596769586",
+               "profile_picture": "patient/07y44Yk7Fgs2DF7v5ErJtbwceKDFIlLpP3mrYkn6.jpg",
+               "status": 1
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/updateProfile
+    metadata:
+      groupName: 'Patient Profile'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Patient Profile'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'optional The name of the Patient.'
+        required: false
+        example: dolorem
+        type: string
+        enumValues: []
+        custom: []
+      email:
+        name: email
+        description: 'optional The email of the Patient.'
+        required: false
+        example: emard.delmer@example.net
+        type: string
+        enumValues: []
+        custom: []
+      age:
+        name: age
+        description: 'optional The age of the Patient.'
+        required: false
+        example: possimus
+        type: date
+        enumValues: []
+        custom: []
+      phone:
+        name: phone
+        description: 'optional The phone of the Patient.'
+        required: false
+        example: molestiae
+        type: numeric
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      name: dolorem
+      email: emard.delmer@example.net
+      age: possimus
+      phone: molestiae
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Profile fetched successfully",
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "error": "The email has already been taken."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "error": "The phone has already been taken."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/changePassword
+    metadata:
+      groupName: 'Patient Profile'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Change Password'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      current_password:
+        name: current_password
+        description: 'The old_password of the Patient.'
+        required: true
+        example: enim
+        type: string
+        enumValues: []
+        custom: []
+      new_password:
+        name: new_password
+        description: 'The password of the Patient.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        custom: []
+      confirm_password:
+        name: confirm_password
+        description: 'The password_confirmation of the Patient.'
+        required: true
+        example: error
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      current_password: enim
+      new_password: consequatur
+      confirm_password: error
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Password changed successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "error": "The old_password and password must be different."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/updateProfileImage
+    metadata:
+      groupName: 'Patient Profile'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Upload profile image'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      profile_picture:
+        name: profile_picture
+        description: 'The profile_picture of the Patient.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+    cleanBodyParameters: []
+    fileParameters:
+      profile_picture: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Profile updated successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "error": "The profile_picture filled is required."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -1,0 +1,199 @@
+name: 'Patient Membership'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/membership/list
+    metadata:
+      groupName: 'Patient Membership'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Membership List'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "data": [
+              {
+                  "id": 1,
+                  "plan_name": "Basic",
+                  "plan_price": "100",
+                  "plan_type": "Basic",
+                  "plan_duration": "3",
+                  "specifications": [
+                      {
+                          "id": 1,
+                          "plan_id": 1,
+                          "specification_name": "Domain Name                        "
+                      },
+                      {
+                          "id": 2,
+                          "plan_id": 1,
+                          "specification_name": "Upto 8 Pages"
+                      }
+                  ]
+              },
+          ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/membership/detailById
+    metadata:
+      groupName: 'Patient Membership'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Membership Details by id'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the membership.'
+        required: true
+        example: 8
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      id: 8
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            * "status": true,
+          "data": [
+              {
+                  "id": 1,
+                  "plan_name": "Basic",
+                  "plan_price": "100",
+                  "plan_type": "Basic",
+                  "plan_duration": "3",
+                  "specifications": [
+                      {
+                          "id": 1,
+                          "plan_id": 1,
+                          "specification_name": "Domain Name                        "
+                      },
+                      {
+                          "id": 2,
+                          "plan_id": 1,
+                          "specification_name": "Upto 8 Pages"
+                      }
+                  ]
+              },
+          ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+           "status": false,
+           "message": "The selected id is invalid."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/membership/payment
+    metadata:
+      groupName: 'Patient Membership'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Payment api'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      plan_id:
+        name: plan_id
+        description: 'The id of the membership.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        enumValues: []
+        custom: []
+      stripeToken:
+        name: stripeToken
+        description: ''
+        required: true
+        example: fugit
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      plan_id: 16
+      name: voluptatem
+      stripeToken: fugit
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

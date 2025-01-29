@@ -1,0 +1,3826 @@
+openapi: 3.0.3
+info:
+  title: 'MD Global'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://127.0.0.1:8000'
+paths:
+  /api/v1/login:
+    post:
+      summary: 'Login Api'
+      operationId: loginApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"status\": true,\n \"statusCode\": 200,\n \"message\": \"Login successfully\",\n     \"data\": {\n    \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMzEyNTk2OWIyYjU0MzQzNjAzOGMzMzdiMGQ0NmU1YjIyYzBjYmNmMDRiOTUxNDc4NzA5YTc2NGQ5YTU4NDcwNmM1MWRhNDBmYjcwMTg2ODciLCJpYXQiOjE2ODYxMjIxNTEuODYxNjA2LCJuYmYiOjE2ODYxMjIxNTEuODYxNjEyLCJleHAiOjE3MTc3NDQ1NTEuODM5MTIxLCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.oD9hpcugxOhepc-dbeXf94itOJz5G9OXnV2ZQB05FU80cvwOALpEwuCUC30mczb8tnvKdWxOKK0EPOyUZKv6Y9TXkYCfH0BTpQaikKaomZL_4TqnCrJ9ToZSMjpaSWdVdqoyG5Voakw__nehoNUMup_tcFaGh4IxoFQLGZEIbsmQKOxQvQx9doJo6oU6aY2Nvoetk7GmH4XIPX_D4ThQZF5GWdmQ-H6T4Cv9OfnLL5B5aBJbYHcszkJh_HZ4FJ6ViKt61UlPI6ymYUTpC_lmroXigUkQ5Lw5_a7NxgNbd8NHY-893jLMNry5l51vdSG4m9tmcFY1T7WxPTQZ_WjT2I6YAJrxS3tvJaycI7UqPrhRaWtDW3jMYn-Drn1NaUkawzBO7yLsfDQd_WvPu2zFiw6uKvN9ChN_vs551ssx1mF400sx7sx6O194VswDkstNEoSRbKqbxdSISkJSVmSeVwqwt3fSTf0QGFIJxssBI4psyUWcbu-i64g0E_6gPfQ6PELIJN1H7vCdNZbGxjlcW6xGql0D1vXlL307QMLKdhXbmkQhUKHpjaKvgi430K9m16AxOm3QfJr5fguU7AHTHafpeDxaTEgsLiK2Zo7ZovTzEJKj898gA0btJF2LrAtllB4BzYr9Mc4H2oJ49mA9swqjqbCobTosdTcb7NIoThM\",\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"John Doe\",\n        \"email\": \"john@yopmail.com\",\n        \"status\": 1\n    }\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error: 'Email id & password was invalid!'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: string
+                    example: 'Email id & password was invalid!'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: john@yopmail.com
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: '12345678'
+                type:
+                  type: string
+                  description: 'The type of the user.'
+                  example: 'Doctor,Patient'
+              required:
+                - email
+                - password
+                - type
+      security: []
+  /api/v1/register:
+    post:
+      summary: 'Register Api'
+      operationId: registerApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  data:
+                    auth_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWVkZWJjZWQ5MzE4OGFjM2YwNGQ1ZTgwYjdhZmFiNjE2N2Q5ZjgzYmM4Zjc0OGI3MDQyNDkzOTJlZTdkYjIzYzUwZTFhODdlMGY0ZTJiYjIiLCJpYXQiOjE2ODYxMjY1MTEuNzkxNDc2LCJuYmYiOjE2ODYxMjY1MTEuNzkxNDgxLCJleHAiOjE3MTc3NDg5MTEuNzczMjE4LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.R6_pNkfP_tbzdV0J9grl1nPXrjjaaBriTIyKSEvfFoFgupAGNSBZm7Z1e7yRsDowh5PWpXs5eHGBBvD06S1sh9YgF5kE9j4JopVntNgG1Ksnugn6UXQXIW2el5jAWRAQCH_MKByrkw3ktZ1_PGz7gsnmC0PWGI53YtEN3cOleU26e9EiHAS5-8uaU7mwQGlU8C_SGF7rS--QsX9_PX3eRWekJ9ssPkysdabZRWeD1WD4xEJUMuG7x_8vckF4k6zsiykJa43ZCRxAQmqJ81rma1leBZ8Li9wtkk3u5lrmPGq1NI3CZB0PMaC0koH2MyiZvAsM-zB_LaALpkLxpWuPR1xu1UxF7LKfFJ8Qw-2Bnelblh1hdu5Iie5vEVQsV2n6kjXNCPLRRaKYEZIWixAyOZQkJiunyuCskgfcPaBZLLMCPZ80by9OoMhPQTMI1FmSJU6gEse8YuN-P33F4TE9QKcCkUh8ATSUeOUN65auQ2h-cEnACxcB2O5k90ohyISDvBQrUp3EN32OLuJHJUWchISGtVvAhL9Ui5iwXDNrnPMQVqMHpHANwK90jpBQ68t8vwmAoKY_pvVDmnzRdx2CwPEtgNfvyXP6k5lUsi6BsFyKJ83mqOMPdF8XbotN0bpyWOA6tw14lR-SHS3IeIk0doMbqAiseuHlZqzaFQ6Uaa0
+                    user:
+                      name: 'Shilpi Chaki'
+                      email: shilpi@yopmail.com
+                      gender: Male
+                      phone: '7485968600'
+                      status: 1
+                      updated_at: '2023-06-07T08:28:31.000000Z'
+                      created_at: '2023-06-07T08:28:31.000000Z'
+                      id: 5
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      auth_token:
+                        type: string
+                        example: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWVkZWJjZWQ5MzE4OGFjM2YwNGQ1ZTgwYjdhZmFiNjE2N2Q5ZjgzYmM4Zjc0OGI3MDQyNDkzOTJlZTdkYjIzYzUwZTFhODdlMGY0ZTJiYjIiLCJpYXQiOjE2ODYxMjY1MTEuNzkxNDc2LCJuYmYiOjE2ODYxMjY1MTEuNzkxNDgxLCJleHAiOjE3MTc3NDg5MTEuNzczMjE4LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.R6_pNkfP_tbzdV0J9grl1nPXrjjaaBriTIyKSEvfFoFgupAGNSBZm7Z1e7yRsDowh5PWpXs5eHGBBvD06S1sh9YgF5kE9j4JopVntNgG1Ksnugn6UXQXIW2el5jAWRAQCH_MKByrkw3ktZ1_PGz7gsnmC0PWGI53YtEN3cOleU26e9EiHAS5-8uaU7mwQGlU8C_SGF7rS--QsX9_PX3eRWekJ9ssPkysdabZRWeD1WD4xEJUMuG7x_8vckF4k6zsiykJa43ZCRxAQmqJ81rma1leBZ8Li9wtkk3u5lrmPGq1NI3CZB0PMaC0koH2MyiZvAsM-zB_LaALpkLxpWuPR1xu1UxF7LKfFJ8Qw-2Bnelblh1hdu5Iie5vEVQsV2n6kjXNCPLRRaKYEZIWixAyOZQkJiunyuCskgfcPaBZLLMCPZ80by9OoMhPQTMI1FmSJU6gEse8YuN-P33F4TE9QKcCkUh8ATSUeOUN65auQ2h-cEnACxcB2O5k90ohyISDvBQrUp3EN32OLuJHJUWchISGtVvAhL9Ui5iwXDNrnPMQVqMHpHANwK90jpBQ68t8vwmAoKY_pvVDmnzRdx2CwPEtgNfvyXP6k5lUsi6BsFyKJ83mqOMPdF8XbotN0bpyWOA6tw14lR-SHS3IeIk0doMbqAiseuHlZqzaFQ6Uaa0
+                      user:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: 'Shilpi Chaki'
+                          email:
+                            type: string
+                            example: shilpi@yopmail.com
+                          gender:
+                            type: string
+                            example: Male
+                          phone:
+                            type: string
+                            example: '7485968600'
+                          status:
+                            type: integer
+                            example: 1
+                          updated_at:
+                            type: string
+                            example: '2023-06-07T08:28:31.000000Z'
+                          created_at:
+                            type: string
+                            example: '2023-06-07T08:28:31.000000Z'
+                          id:
+                            type: integer
+                            example: 5
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 401
+                  error: 'Email id & password was invalid!'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 401
+                  error:
+                    type: string
+                    example: 'Email id & password was invalid!'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: john@yopmail.com
+                gender:
+                  type: string
+                  description: required.
+                  example: 'Male,Female,Other'
+                phone:
+                  type: numeric
+                  description: 'The phone of the user.'
+                  example: '9876543210'
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: '12345678'
+                confirm_password:
+                  type: string
+                  description: 'The confirm_password of the user.'
+                  example: '12345678'
+                type:
+                  type: string
+                  description: 'The type of the user.'
+                  example: 'Doctor,Patient'
+                age:
+                  type: string
+                  description: ''
+                  example: ut
+                location:
+                  type: string
+                  description: 'The name of the user.'
+                  example: 'John Doe'
+              required:
+                - name
+                - email
+                - phone
+                - password
+                - confirm_password
+                - type
+                - age
+      security: []
+  /api/v1/user-chat:
+    post:
+      summary: 'Send Message api'
+      operationId: sendMessageApi
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reciver_id:
+                  type: string
+                  description: ''
+                  example: vero
+                message:
+                  type: string
+                  description: ''
+                  example: provident
+              required:
+                - reciver_id
+                - message
+  /api/v1/medical stuff/booking-history/list-with-filter:
+    post:
+      summary: 'Get Booking History'
+      operationId: getBookingHistory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n   \"data\": {\n       \"appointments\": {\n               {\n                   \"id\": 11,\n                   \"patient_name\": \"John Doe\",\n                   \"patient_profile_picture\": \"patient/07y44Yk7Fgs2DF7v5ErJtbwceKDFIlLpP3mrYkn6.jpg\",\n                   \"appointment_date\": \"2023-09-11\",\n                   \"appointment_time\": \"01:00 PM\",\n                   \"clinic_name\": \"ORM Medicle\",\n                   \"clinic_address\": \"Rajarhat Main Road, Chinar Park, Kalipark, Tegharia, Newtown, Kolkata, West Bengal, India\",\n                   \"duration\": \"30 min\",\n                   \"appointment_status\": \"Done\"\n               }\n       },\n       \"clinics\": {\n               {\n                   \"id\": 4,\n                   \"clinic_name\": \"The Healing Clinic\"\n               },\n               {\n                   \"id\": 8,\n                   \"clinic_name\": \"ORM Medicle\"\n               }\n       }\n   }\n}"
+      tags:
+        - 'Medical Stuff Booking History'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  description: 'optional Date of appointment.'
+                  example: '2021-09-11'
+                clinic_id:
+                  type: array
+                  description: 'optional Service Centers id.'
+                  example:
+                    - 1
+                    - 2
+                  items:
+                    type: string
+                status:
+                  type: array
+                  description: 'optional appointment_status.'
+                  example:
+                    - Pending
+                    - Done
+                    - Cancelled
+                  items:
+                    type: string
+  /api/v1/medical stuff/chat/request-list:
+    post:
+      summary: 'Medical Stuff Chat Request'
+      operationId: doctorChatRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Chat Request List'
+                  data:
+                    -
+                      id: 2
+                      profile_picture: null
+                      gender: Male
+                      name: 'Chatrapati Shivaji'
+                      age: '1978-10-10'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Chat Request List'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        profile_picture: null
+                        gender: Male
+                        name: 'Chatrapati Shivaji'
+                        age: '1978-10-10'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        profile_picture:
+                          type: string
+                          example: null
+                        gender:
+                          type: string
+                          example: Male
+                        name:
+                          type: string
+                          example: 'Chatrapati Shivaji'
+                        age:
+                          type: string
+                          example: '1978-10-10'
+      tags:
+        - 'Medical Stuff Chat'
+  /api/v1/medical stuff/chat/request-accept:
+    post:
+      summary: 'Medical Stuff Chat Request Accept'
+      operationId: doctorChatRequestAccept
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Chat Request Accepted'
+                  data: []
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Chat Request Accepted'
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - 'Medical Stuff Chat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                friend_id:
+                  type: integer
+                  description: ''
+                  example: 6
+              required:
+                - friend_id
+  /api/v1/medical stuff/chat/request-reject:
+    post:
+      summary: 'Medical Stuff Chat Request Reject'
+      operationId: doctorChatRequestReject
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Chat Request Rejected'
+                  data: []
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Chat Request Rejected'
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - 'Medical Stuff Chat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                friend_id:
+                  type: integer
+                  description: ''
+                  example: 17
+              required:
+                - friend_id
+  /api/v1/medical stuff/chat:
+    post:
+      summary: 'Medical Stuff Chat'
+      operationId: doctorChat
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Chat List'
+                  data:
+                    -
+                      id: 12
+                      sender_id: '4'
+                      reciver_id: '3'
+                      message: 'James Bond accepted your chat request.'
+                      created_at: '2023-08-28T13:12:02.000000Z'
+                      updated_at: '2023-08-28T13:12:02.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Chat List'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 12
+                        sender_id: '4'
+                        reciver_id: '3'
+                        message: 'James Bond accepted your chat request.'
+                        created_at: '2023-08-28T13:12:02.000000Z'
+                        updated_at: '2023-08-28T13:12:02.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 12
+                        sender_id:
+                          type: string
+                          example: '4'
+                        reciver_id:
+                          type: string
+                          example: '3'
+                        message:
+                          type: string
+                          example: 'James Bond accepted your chat request.'
+                        created_at:
+                          type: string
+                          example: '2023-08-28T13:12:02.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-08-28T13:12:02.000000Z'
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": false,\n\"message\": \"Validation Error\",\n\"error\": {\n   \"friend_id\": [\n      \"The friend id field is required.\"\n  ]\n}"
+      tags:
+        - 'Medical Stuff Chat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                friend_id:
+                  type: integer
+                  description: ''
+                  example: 9
+              required:
+                - friend_id
+  /api/v1/medical stuff/chat/friends:
+    post:
+      summary: 'Friend List'
+      operationId: friendList
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Friend List'
+                  data:
+                    -
+                      id: 25
+                      user_id: 4
+                      friend_id: 3
+                      status: 1
+                      created_at: '2023-08-28T11:02:45.000000Z'
+                      updated_at: '2023-09-28T06:17:47.000000Z'
+                      friend:
+                        id: 3
+                        name: 'John Does'
+                        email: john@yopmail.com
+                        phone: '8596769586'
+                        email_verified_at: null
+                        profile_picture: patient/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg
+                        year_of_experience: null
+                        license_number: null
+                        location: Kolkata
+                        gender: Male
+                        age: '2000-01-06'
+                        fcm_token: 'eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN'
+                        status: 1
+                        deleted_at: null
+                        created_at: '2023-05-30T04:51:16.000000Z'
+                        updated_at: '2023-09-05T08:47:47.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Friend List'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 25
+                        user_id: 4
+                        friend_id: 3
+                        status: 1
+                        created_at: '2023-08-28T11:02:45.000000Z'
+                        updated_at: '2023-09-28T06:17:47.000000Z'
+                        friend:
+                          id: 3
+                          name: 'John Does'
+                          email: john@yopmail.com
+                          phone: '8596769586'
+                          email_verified_at: null
+                          profile_picture: patient/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg
+                          year_of_experience: null
+                          license_number: null
+                          location: Kolkata
+                          gender: Male
+                          age: '2000-01-06'
+                          fcm_token: 'eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN'
+                          status: 1
+                          deleted_at: null
+                          created_at: '2023-05-30T04:51:16.000000Z'
+                          updated_at: '2023-09-05T08:47:47.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 25
+                        user_id:
+                          type: integer
+                          example: 4
+                        friend_id:
+                          type: integer
+                          example: 3
+                        status:
+                          type: integer
+                          example: 1
+                        created_at:
+                          type: string
+                          example: '2023-08-28T11:02:45.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-09-28T06:17:47.000000Z'
+                        friend:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 3
+                            name:
+                              type: string
+                              example: 'John Does'
+                            email:
+                              type: string
+                              example: john@yopmail.com
+                            phone:
+                              type: string
+                              example: '8596769586'
+                            email_verified_at:
+                              type: string
+                              example: null
+                            profile_picture:
+                              type: string
+                              example: patient/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg
+                            year_of_experience:
+                              type: string
+                              example: null
+                            license_number:
+                              type: string
+                              example: null
+                            location:
+                              type: string
+                              example: Kolkata
+                            gender:
+                              type: string
+                              example: Male
+                            age:
+                              type: string
+                              example: '2000-01-06'
+                            fcm_token:
+                              type: string
+                              example: 'eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN'
+                            status:
+                              type: integer
+                              example: 1
+                            deleted_at:
+                              type: string
+                              example: null
+                            created_at:
+                              type: string
+                              example: '2023-05-30T04:51:16.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2023-09-05T08:47:47.000000Z'
+      tags:
+        - 'Medical Stuff Chat'
+  /api/v1/medical stuff/dashboard:
+    post:
+      summary: 'Medical Stuff Dashboard'
+      operationId: doctorDashboard
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: Dashboard
+                  data:
+                    chat_request_count: 0
+                    booking_history_count: 0
+                    clinic_count: 0
+                    chat_request: []
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Dashboard
+                  data:
+                    type: object
+                    properties:
+                      chat_request_count:
+                        type: integer
+                        example: 0
+                      booking_history_count:
+                        type: integer
+                        example: 0
+                      clinic_count:
+                        type: integer
+                        example: 0
+                      chat_request:
+                        type: array
+                        example: []
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  message: 'Something went wrong'
+                  error: ...
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Something went wrong'
+                  error:
+                    type: string
+                    example: ...
+      tags:
+        - 'Medical Stuff Dashboard'
+  /api/v1/medical stuff/notifications:
+    post:
+      summary: 'Get Notification'
+      operationId: getNotification
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  data:
+                    -
+                      id: 1
+                      send_to: medical stuff
+                      message: 'Your appointment is booked with patient name: test patient'
+                      created_at: '2021-09-28T10:20:00.000000Z'
+                      updated_at: '2021-09-28T10:20:00.000000Z'
+                    -
+                      id: 2
+                      send_to: medical stuff
+                      message: 'Your appointment is booked with patient name: test patient'
+                      created_at: '2021-09-28T10:20:00.000000Z'
+                      updated_at: '2021-09-28T10:20:00.000000Z'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        send_to: medical stuff
+                        message: 'Your appointment is booked with patient name: test patient'
+                        created_at: '2021-09-28T10:20:00.000000Z'
+                        updated_at: '2021-09-28T10:20:00.000000Z'
+                      -
+                        id: 2
+                        send_to: medical stuff
+                        message: 'Your appointment is booked with patient name: test patient'
+                        created_at: '2021-09-28T10:20:00.000000Z'
+                        updated_at: '2021-09-28T10:20:00.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        send_to:
+                          type: string
+                          example: medical stuff
+                        message:
+                          type: string
+                          example: 'Your appointment is booked with patient name: test patient'
+                        created_at:
+                          type: string
+                          example: '2021-09-28T10:20:00.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2021-09-28T10:20:00.000000Z'
+      tags:
+        - 'Medical Stuff Notification'
+      security: []
+  /api/v1/medical stuff/getProfile:
+    post:
+      summary: 'GetMedical Staff Profile'
+      operationId: getDoctorProfile
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile fetched successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}"
+      tags:
+        - 'Medical Stuff Profile'
+  /api/v1/medical stuff/updateProfile:
+    post:
+      summary: 'UpdateMedical Staff Profile'
+      operationId: updateDoctorProfile
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile fetched successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The phone has already been taken.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The phone has already been taken.'
+      tags:
+        - 'Medical Stuff Profile'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of theMedical Staff.'
+                  example: quae
+                email:
+                  type: string
+                  description: 'The email of theMedical Staff.'
+                  example: adell68@example.net
+                gender:
+                  type: string
+                  description: ''
+                  example: sunt
+                age:
+                  type: date
+                  description: 'The age of theMedical Staff.'
+                  example: perspiciatis
+                phone:
+                  type: numeric
+                  description: 'The phone of theMedical Staff.'
+                  example: laborum
+                specialization_id:
+                  type: array
+                  description: 'The specialization_id of theMedical Staff.'
+                  example:
+                    - nisi
+                  items:
+                    type: string
+                license_number:
+                  type: string
+                  description: 'The license_number of theMedical Staff.'
+                  example: architecto
+              required:
+                - name
+                - email
+                - gender
+                - age
+                - phone
+                - specialization_id
+                - license_number
+  /api/v1/medical stuff/changePassword:
+    post:
+      summary: 'Change Password'
+      operationId: changePassword
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Password changed successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The old_password and password must be different.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The old_password and password must be different.'
+      tags:
+        - 'Medical Stuff Profile'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: 'The old_password of theMedical Staff.'
+                  example: placeat
+                new_password:
+                  type: string
+                  description: 'The password of theMedical Staff.'
+                  example: ea
+                confirm_password:
+                  type: string
+                  description: 'The password_confirmation of theMedical Staff.'
+                  example: qui
+              required:
+                - current_password
+                - new_password
+                - confirm_password
+  /api/v1/medical stuff/updateProfileImage:
+    post:
+      summary: 'Upload profile image'
+      operationId: uploadProfileImage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile updated successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The profile_picture filled is required.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The profile_picture filled is required.'
+      tags:
+        - 'Medical Stuff Profile'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                profile_picture:
+                  type: string
+                  format: binary
+                  description: 'The profile_picture of theMedical Staff.'
+              required:
+                - profile_picture
+  /api/v1/medical stuff/help-and-support:
+    post:
+      summary: 'Help and Support'
+      operationId: helpAndSupport
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Medical Stuff Settings'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subject:
+                  type: string
+                  description: ''
+                  example: qui
+                message:
+                  type: string
+                  description: "@response 200{\n\"status\": true,\n\"data\": {\n\"id\": 1,\n\"user_id\": 1,\n\"name\": \"test medical stuff\",\n\"email\": \"test@yopmail.com\",\n\"phone\": \"1234567890\",\n\"subject\": \"test\",\n\"message\": \"test\",\n\"created_at\": \"2021-09-28T10:20:00.000000Z\",\n\"updated_at\": \"2021-09-28T10:20:00.000000Z\"\n}\n}"
+                  example: eum
+              required:
+                - subject
+                - message
+      security: []
+  /api/v1/medical stuff/privacy-policy:
+    post:
+      summary: 'Privacy Policy'
+      operationId: privacyPolicy
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  data:
+                    id: 1
+                    content: "Why do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                    created_at: '2023-06-28T09:40:56.000000Z'
+                    updated_at: '2023-06-28T09:45:32.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      content:
+                        type: string
+                        example: "Why do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                      created_at:
+                        type: string
+                        example: '2023-06-28T09:40:56.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-06-28T09:45:32.000000Z'
+      tags:
+        - 'Medical Stuff Settings'
+      security: []
+  /api/v1/medical stuff/about-us:
+    post:
+      summary: 'About Us'
+      operationId: aboutUs
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  data:
+                    id: 1
+                    content: "Lorem ipsum dolor sit amet consectetur. Pharetra netus cursus nec facilisis. Quis ultrices morbi maecenas lobortis. Mattis sed nisi amet nisi elit nunc nibh in. Ac convallis fringilla tortor morbi vel massa et et. Elementum pellentesque quis nunc elit. Urna pellentesque venenatis egestas ac neque a. Consequat mi at quis sed tincidunt leo sed sit. Pretium mauris imperdiet ornare nunc ut enim. Erat viverra urna sed quis et varius lectus ipsum mollis. Ullamcorper pellentesque lectus sed tellus fames dolor turpis nibh pharetra. Aliquam tortor nascetur nec neque porttitor molestie quis non arcu. Pretium lectus eu vitae diam sapien pellentesque nisl. Euismod auctor arcu cras facilisi tortor facilisis consectetur.\r\n\r\n        Amet ultrices augue lorem iaculis tortor massa velit. Phasellus sapien non ac tortor convallis fringilla. Sapien massa nunc aliquam platea pulvinar morbi dictum. Quis eget at magna sem mi dui elit. Nisl leo facilisis faucibus non posuere enim senectus. Lorem volutpat ante mollis pulvinar nibh tristique eu. Neque malesuada enim tellus tristique sem senectus ornare pharetra. Ipsum est a bibendum pretium viverra cras turpis massa.\r\n\r\n        Neque id tristique auctor accumsan dolor lorem praesent volutpat cras. Id auctor in tempor egestas ornare faucibus. Viverra nisi quis lacinia lorem sed tellus mattis aliquet. Sed nam nulla sit eu feugiat nisi elementum urna laoreet. Nulla sit interdum amet nisl et. Fames senectus cursus ullamcorper varius feugiat."
+                    created_at: '2023-06-28T09:26:19.000000Z'
+                    updated_at: '2023-06-28T09:35:58.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      content:
+                        type: string
+                        example: "Lorem ipsum dolor sit amet consectetur. Pharetra netus cursus nec facilisis. Quis ultrices morbi maecenas lobortis. Mattis sed nisi amet nisi elit nunc nibh in. Ac convallis fringilla tortor morbi vel massa et et. Elementum pellentesque quis nunc elit. Urna pellentesque venenatis egestas ac neque a. Consequat mi at quis sed tincidunt leo sed sit. Pretium mauris imperdiet ornare nunc ut enim. Erat viverra urna sed quis et varius lectus ipsum mollis. Ullamcorper pellentesque lectus sed tellus fames dolor turpis nibh pharetra. Aliquam tortor nascetur nec neque porttitor molestie quis non arcu. Pretium lectus eu vitae diam sapien pellentesque nisl. Euismod auctor arcu cras facilisi tortor facilisis consectetur.\r\n\r\n        Amet ultrices augue lorem iaculis tortor massa velit. Phasellus sapien non ac tortor convallis fringilla. Sapien massa nunc aliquam platea pulvinar morbi dictum. Quis eget at magna sem mi dui elit. Nisl leo facilisis faucibus non posuere enim senectus. Lorem volutpat ante mollis pulvinar nibh tristique eu. Neque malesuada enim tellus tristique sem senectus ornare pharetra. Ipsum est a bibendum pretium viverra cras turpis massa.\r\n\r\n        Neque id tristique auctor accumsan dolor lorem praesent volutpat cras. Id auctor in tempor egestas ornare faucibus. Viverra nisi quis lacinia lorem sed tellus mattis aliquet. Sed nam nulla sit eu feugiat nisi elementum urna laoreet. Nulla sit interdum amet nisl et. Fames senectus cursus ullamcorper varius feugiat."
+                      created_at:
+                        type: string
+                        example: '2023-06-28T09:26:19.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-06-28T09:35:58.000000Z'
+      tags:
+        - 'Medical Stuff Settings'
+      security: []
+  /api/v1/medical stuff/delete-account:
+    post:
+      summary: 'Delete Account'
+      operationId: deleteAccount
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Account deleted successfully.'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Account deleted successfully.'
+      tags:
+        - 'Medical Stuff Settings'
+      security: []
+  /api/v1/medical stuff/send-video-request:
+    post:
+      summary: 'Send Video Request'
+      operationId: sendVideoRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n{\n    \"status\": true,\n    \"message\": \"Metting created successfully\",\n    \"start_url\": \"https://us05web.zoom.us/s/89209152434?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InI2eVpFNVBQUnVHZE5wWEluUGVMeWciLCJpc3MiOiJ3ZWIiLCJzayI6IjM5MTg1MDQ1NjAyMDA5NjEyNDUiLCJzdHkiOjEsIndjZCI6InVzMDUiLCJjbHQiOjAsIm1udW0iOiI4OTIwOTE1MjQzNCIsImV4cCI6MTY5OTYxMzU4NCwiaWF0IjoxNjk5NjA2Mzg0LCJhaWQiOiJJWHhJcG10LVJOYVRmT0ZDR1R3OHNnIiwiY2lkIjoiIn0.fFz0IUs9Tt64ec3ytltR6Hmi2fjB6B_ggrvEnZPqRnY\"\n  }\n}"
+      tags:
+        - 'Medical Stuff Video Calling'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reciver_id:
+                  type: integer
+                  description: ''
+                  example: 8
+                sender_id:
+                  type: integer
+                  description: ''
+                  example: 16
+              required:
+                - reciver_id
+                - sender_id
+      security: []
+  /api/v1/forget-password:
+    post:
+      summary: 'Forget Password Api'
+      operationId: forgetPasswordApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  message: 'OTP has been sent to your email'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'OTP has been sent to your email'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error:
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+      tags:
+        - 'Forget Password'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Email of the Patient.'
+                  example: john@yopmail.com
+              required:
+                - email
+      security: []
+  /api/v1/otp-verification:
+    post:
+      summary: 'OTP Verification Api'
+      operationId: oTPVerificationApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  message: 'OTP verified successfully'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'OTP verified successfully'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 401
+                  error: 'OTP is expired'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 401
+                  error:
+                    type: string
+                    example: 'OTP is expired'
+      tags:
+        - 'Forget Password'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                otp:
+                  type: numeric
+                  description: 'OTP of the Patient.'
+                  example: '123456'
+                email:
+                  type: string
+                  description: 'Email of the Patient.'
+                  example: john@yopmail.com
+              required:
+                - otp
+                - email
+      security: []
+  /api/v1/reset-password:
+    post:
+      summary: 'Reset Password Api'
+      operationId: resetPasswordApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  message: 'Password has been reset successfully'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Password has been reset successfully'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error:
+                    password:
+                      - 'The password field is required.'
+                    confirm_password:
+                      - 'The confirm password field is required.'
+                    email:
+                      - 'The email field is required.'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: object
+                    properties:
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+                      confirm_password:
+                        type: array
+                        example:
+                          - 'The confirm password field is required.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+      tags:
+        - 'Forget Password'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: 'Password of the Patient.'
+                  example: '123456'
+                confirm_password:
+                  type: string
+                  description: 'Confirm Password of the Patient.'
+                  example: '123456'
+                email:
+                  type: string
+                  description: 'Email of the Patient.'
+                  example: john@yopmail.com
+              required:
+                - password
+                - confirm_password
+                - email
+      security: []
+  /api/v1/symptoms:
+    post:
+      summary: 'Symptoms Api'
+      operationId: symptomsApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  data:
+                    -
+                      id: 2
+                      specialization_id: 2
+                      symptom_name: 'Oral Piercing Infection'
+                      symptom_description: '<p>Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.</p>'
+                      symptom_image: symptoms/J1Qbab05PP4gVTbBJ3bJ5bW6up46R99VaXpp4uXi.png
+                      symptom_status: 1
+                      created_at: '2023-06-06T07:13:51.000000Z'
+                      updated_at: '2023-06-06T07:13:51.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        specialization_id: 2
+                        symptom_name: 'Oral Piercing Infection'
+                        symptom_description: '<p>Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.</p>'
+                        symptom_image: symptoms/J1Qbab05PP4gVTbBJ3bJ5bW6up46R99VaXpp4uXi.png
+                        symptom_status: 1
+                        created_at: '2023-06-06T07:13:51.000000Z'
+                        updated_at: '2023-06-06T07:13:51.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        specialization_id:
+                          type: integer
+                          example: 2
+                        symptom_name:
+                          type: string
+                          example: 'Oral Piercing Infection'
+                        symptom_description:
+                          type: string
+                          example: '<p>Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.</p>'
+                        symptom_image:
+                          type: string
+                          example: symptoms/J1Qbab05PP4gVTbBJ3bJ5bW6up46R99VaXpp4uXi.png
+                        symptom_status:
+                          type: integer
+                          example: 1
+                        created_at:
+                          type: string
+                          example: '2023-06-06T07:13:51.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-06-06T07:13:51.000000Z'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  message: 'No Symptoms Found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: 'No Symptoms Found'
+      tags:
+        - 'Home Page Api''s'
+      security: []
+  /api/v1/specializations:
+    post:
+      summary: 'Specialization Api'
+      operationId: specializationApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  data:
+                    -
+                      id: 3
+                      name: Dermatologist
+                      slug: dermatologist
+                      image: specializations/V2TlHIoJvN7dL2bYdkUoh2GYhwitQotuohwGNqKe.png
+                      description: 'Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.'
+                      status: 1
+                      created_at: '2023-06-06T10:55:47.000000Z'
+                      updated_at: '2023-06-06T10:55:47.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 3
+                        name: Dermatologist
+                        slug: dermatologist
+                        image: specializations/V2TlHIoJvN7dL2bYdkUoh2GYhwitQotuohwGNqKe.png
+                        description: 'Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.'
+                        status: 1
+                        created_at: '2023-06-06T10:55:47.000000Z'
+                        updated_at: '2023-06-06T10:55:47.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 3
+                        name:
+                          type: string
+                          example: Dermatologist
+                        slug:
+                          type: string
+                          example: dermatologist
+                        image:
+                          type: string
+                          example: specializations/V2TlHIoJvN7dL2bYdkUoh2GYhwitQotuohwGNqKe.png
+                        description:
+                          type: string
+                          example: 'Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.'
+                        status:
+                          type: integer
+                          example: 1
+                        created_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  message: 'No Specialization Found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: 'No Specialization Found'
+      tags:
+        - 'Home Page Api''s'
+      security: []
+  /api/v1/all-doctors-by-location:
+    post:
+      summary: 'All doctors Api'
+      operationId: allDoctorsApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  data:
+                    -
+                      id: 13
+                      name: 'Shreeja Sadhukhan'
+                      email: shreeja@yopmail.com
+                      phone: '7475850123'
+                      email_verified_at: 'null'
+                      profile_picture: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                      year_of_experience: '3'
+                      license_number: 'null'
+                      location: 'Purba Bardhaman'
+                      gender: Female
+                      age: '22'
+                      status: 1
+                      fcm_token: null
+                      created_at: '2023-06-06T10:55:47.000000Z'
+                      updated_at: '2023-06-06T10:55:47.000000Z'
+                      deleted_at: null
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 13
+                        name: 'Shreeja Sadhukhan'
+                        email: shreeja@yopmail.com
+                        phone: '7475850123'
+                        email_verified_at: 'null'
+                        profile_picture: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                        year_of_experience: '3'
+                        license_number: 'null'
+                        location: 'Purba Bardhaman'
+                        gender: Female
+                        age: '22'
+                        status: 1
+                        fcm_token: null
+                        created_at: '2023-06-06T10:55:47.000000Z'
+                        updated_at: '2023-06-06T10:55:47.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 13
+                        name:
+                          type: string
+                          example: 'Shreeja Sadhukhan'
+                        email:
+                          type: string
+                          example: shreeja@yopmail.com
+                        phone:
+                          type: string
+                          example: '7475850123'
+                        email_verified_at:
+                          type: string
+                          example: 'null'
+                        profile_picture:
+                          type: string
+                          example: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                        year_of_experience:
+                          type: string
+                          example: '3'
+                        license_number:
+                          type: string
+                          example: 'null'
+                        location:
+                          type: string
+                          example: 'Purba Bardhaman'
+                        gender:
+                          type: string
+                          example: Female
+                        age:
+                          type: string
+                          example: '22'
+                        status:
+                          type: integer
+                          example: 1
+                        fcm_token:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  message: 'NoMedical Staff Found in your area!'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: 'NoMedical Staff Found in your area!'
+      tags:
+        - 'Home Page Api''s'
+      security: []
+  /api/v1/doctors:
+    post:
+      summary: 'Medical Stuff List as per symptoms/specializations Api'
+      operationId: doctorsListAsPerSymptomsspecializationsApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  data:
+                    -
+                      id: 13
+                      name: 'Shreeja Sadhukhan'
+                      email: shreeja@yopmail.com
+                      phone: '7475850123'
+                      email_verified_at: 'null'
+                      profile_picture: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                      year_of_experience: '3'
+                      license_number: 'null'
+                      location: 'Purba Bardhaman'
+                      gender: Female
+                      age: '22'
+                      status: 1
+                      fcm_token: null
+                      created_at: '2023-06-06T10:55:47.000000Z'
+                      updated_at: '2023-06-06T10:55:47.000000Z'
+                      deleted_at: null
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 13
+                        name: 'Shreeja Sadhukhan'
+                        email: shreeja@yopmail.com
+                        phone: '7475850123'
+                        email_verified_at: 'null'
+                        profile_picture: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                        year_of_experience: '3'
+                        license_number: 'null'
+                        location: 'Purba Bardhaman'
+                        gender: Female
+                        age: '22'
+                        status: 1
+                        fcm_token: null
+                        created_at: '2023-06-06T10:55:47.000000Z'
+                        updated_at: '2023-06-06T10:55:47.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 13
+                        name:
+                          type: string
+                          example: 'Shreeja Sadhukhan'
+                        email:
+                          type: string
+                          example: shreeja@yopmail.com
+                        phone:
+                          type: string
+                          example: '7475850123'
+                        email_verified_at:
+                          type: string
+                          example: 'null'
+                        profile_picture:
+                          type: string
+                          example: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                        year_of_experience:
+                          type: string
+                          example: '3'
+                        license_number:
+                          type: string
+                          example: 'null'
+                        location:
+                          type: string
+                          example: 'Purba Bardhaman'
+                        gender:
+                          type: string
+                          example: Female
+                        age:
+                          type: string
+                          example: '22'
+                        status:
+                          type: integer
+                          example: 1
+                        fcm_token:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  message: 'NoMedical Staff Found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: 'NoMedical Staff Found'
+      tags:
+        - 'Home Page Api''s'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: 'The type of the search. example - symptoms, specializations, all'
+                  example: dolores
+                slug:
+                  type: string
+                  description: 'The slug of the search. example - dermatologist, oral-piercing-infection'
+                  example: vero
+                filter:
+                  type: string
+                  description: 'The filter of the search. example - all, clinic'
+                  example: minus
+              required:
+                - type
+                - slug
+                - filter
+      security: []
+  /api/v1/search-doctors:
+    post:
+      summary: 'Medical Stuff/Service Centers List as per search Api'
+      operationId: doctorsClinicsListAsPerSearchApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  data:
+                    -
+                      id: 13
+                      name: 'Shreeja Sadhukhan'
+                      email: shreeja@yopmail.com
+                      phone: '7475850123'
+                      email_verified_at: 'null'
+                      profile_picture: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                      year_of_experience: '3'
+                      license_number: 'null'
+                      location: 'Purba Bardhaman'
+                      gender: Female
+                      age: '22'
+                      status: 1
+                      fcm_token: null
+                      created_at: '2023-06-06T10:55:47.000000Z'
+                      updated_at: '2023-06-06T10:55:47.000000Z'
+                      deleted_at: null
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 13
+                        name: 'Shreeja Sadhukhan'
+                        email: shreeja@yopmail.com
+                        phone: '7475850123'
+                        email_verified_at: 'null'
+                        profile_picture: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                        year_of_experience: '3'
+                        license_number: 'null'
+                        location: 'Purba Bardhaman'
+                        gender: Female
+                        age: '22'
+                        status: 1
+                        fcm_token: null
+                        created_at: '2023-06-06T10:55:47.000000Z'
+                        updated_at: '2023-06-06T10:55:47.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 13
+                        name:
+                          type: string
+                          example: 'Shreeja Sadhukhan'
+                        email:
+                          type: string
+                          example: shreeja@yopmail.com
+                        phone:
+                          type: string
+                          example: '7475850123'
+                        email_verified_at:
+                          type: string
+                          example: 'null'
+                        profile_picture:
+                          type: string
+                          example: medical stuff/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg
+                        year_of_experience:
+                          type: string
+                          example: '3'
+                        license_number:
+                          type: string
+                          example: 'null'
+                        location:
+                          type: string
+                          example: 'Purba Bardhaman'
+                        gender:
+                          type: string
+                          example: Female
+                        age:
+                          type: string
+                          example: '22'
+                        status:
+                          type: integer
+                          example: 1
+                        fcm_token:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 404
+                  message: 'NoMedical Staff or Service Centers Found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'NoMedical Staff or Service Centers Found'
+      tags:
+        - 'Home Page Api''s'
+      security: []
+  /api/v1/store-location:
+    post:
+      summary: 'Location Store Api'
+      operationId: locationStoreApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  data:
+                    -
+                      id: 23
+                      user_id: 14
+                      session_id: null
+                      ip_address: 127.0.0.1
+                      address: 'J92M+P72, Kolkata Station Rd, Belgachia, Kolkata, West Bengal 700004, India'
+                      latitude: '22.5764753'
+                      longitude: '88.4306861'
+                      created_at: '2023-06-06T10:55:47.000000Z'
+                      updated_at: '2023-06-06T10:55:47.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 23
+                        user_id: 14
+                        session_id: null
+                        ip_address: 127.0.0.1
+                        address: 'J92M+P72, Kolkata Station Rd, Belgachia, Kolkata, West Bengal 700004, India'
+                        latitude: '22.5764753'
+                        longitude: '88.4306861'
+                        created_at: '2023-06-06T10:55:47.000000Z'
+                        updated_at: '2023-06-06T10:55:47.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 23
+                        user_id:
+                          type: integer
+                          example: 14
+                        session_id:
+                          type: string
+                          example: null
+                        ip_address:
+                          type: string
+                          example: 127.0.0.1
+                        address:
+                          type: string
+                          example: 'J92M+P72, Kolkata Station Rd, Belgachia, Kolkata, West Bengal 700004, India'
+                        latitude:
+                          type: string
+                          example: '22.5764753'
+                        longitude:
+                          type: string
+                          example: '88.4306861'
+                        created_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-06-06T10:55:47.000000Z'
+      tags:
+        - 'Home Page Api''s'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                latitude:
+                  type: string
+                  description: 'The latitude of the location.'
+                  example: possimus
+                longitude:
+                  type: string
+                  description: 'The longitude of the location.'
+                  example: consequuntur
+              required:
+                - latitude
+                - longitude
+      security: []
+  /api/v1/medical stuff/manage-clinic/list:
+    post:
+      summary: 'Get Service Centers List'
+      operationId: getClinicList
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n*\"status\": true,\n   \"statusCode\": 200,\n   \"message\": \"Service Centers list\",\n   \"data\": {\n           {\n               \"id\": 4,\n               \"clinic_name\": \"The Healing Clinic\",\n               \"clinic_address\": \"Indian Association For The Cultivation Of Science, Poddar Nagar, Jadavpur, Kolkata, West Bengal, India\",\n               \"clinic_phone\": \"7485968695\",\n               \"clinic_opening_days\": [\n                   {\n                       \"id\": 38,\n                       \"day\": \"Monday\"\n                   },\n                   {\n                       \"id\": 39,\n                       \"day\": \"Tuesday\"\n                   },\n                   {\n                       \"id\": 40,\n                       \"day\": \"Wednesday\"\n                   },\n                   {\n                       \"id\": 41,\n                       \"day\": \"Thursday\"\n                   }\n               ]\n           }\n   }\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  message: 'No clinic found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  message:
+                    type: string
+                    example: 'No clinic found'
+      tags:
+        - 'Manage Clinic'
+  /api/v1/medical stuff/manage-clinic/create:
+    post:
+      summary: 'Create Clinic'
+      operationId: createClinic
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers list\",\n\"data\": {\n       {\n           \"id\": 1,\n           \"day\": \"Sunday\"\n       },\n       {\n           \"id\": 2,\n           \"day\": \"Monday\"\n       },\n       {\n           \"id\": 3,\n           \"day\": \"Tuesday\"\n       },\n       {\n           \"id\": 4,\n           \"day\": \"Wednesday\"\n       },\n       {\n           \"id\": 5,\n           \"day\": \"Thursday\"\n       },\n       {\n           \"id\": 6,\n           \"day\": \"Friday\"\n       },\n       {\n           \"id\": 7,\n           \"day\": \"Saturday\"\n       }\n}\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error: 'No clinic found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: string
+                    example: 'No clinic found'
+      tags:
+        - 'Manage Clinic'
+  /api/v1/medical stuff/manage-clinic/store:
+    post:
+      summary: 'Store clinic details'
+      operationId: storeClinicDetails
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers details added successfully\"\n}\n\n @response 201{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}"
+      tags:
+        - 'Manage Clinic'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                clinic_name:
+                  type: string
+                  description: ''
+                  example: et
+                clinic_address:
+                  type: string
+                  description: ''
+                  example: quas
+                clinic_phone:
+                  type: numeric
+                  description: ''
+                  example: blanditiis
+                day_id:
+                  type: array
+                  description: ''
+                  example:
+                    - sapiente
+                  items:
+                    type: string
+                latitute:
+                  type: string
+                  description: ''
+                  example: laboriosam
+                longitute:
+                  type: string
+                  description: ''
+                  example: modi
+                slot_date:
+                  type: array
+                  description: ''
+                  example:
+                    - in
+                  items:
+                    type: string
+                slot_start_time:
+                  type: array
+                  description: ''
+                  example:
+                    - nisi
+                  items:
+                    type: string
+                slot_end_time:
+                  type: array
+                  description: required.
+                  example:
+                    - non
+                  items:
+                    type: string
+                first_time_mode:
+                  type: array
+                  description: required.
+                  example:
+                    - reprehenderit
+                  items:
+                    type: string
+                second_time_mode:
+                  type: array
+                  description: required.
+                  example:
+                    - provident
+                  items:
+                    type: string
+              required:
+                - clinic_name
+                - clinic_address
+                - clinic_phone
+                - day_id
+                - latitute
+                - longitute
+                - slot_date
+                - slot_start_time
+  /api/v1/medical stuff/manage-clinic/edit:
+    post:
+      summary: 'Edit clinic details'
+      operationId: editClinicDetails
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers list\",\n\"data\": {\n    \"id\": 4,\n   \"clinic_name\": \"The Healing Clinic\",\n  \"clinic_address\": \"Indian Association For The Cultivation Of Science, Poddar Nagar, Jadavpur, Kolkata, West Bengal, India\",\n \"clinic_phone\": \"7485968695\",\n\"clinic_opening_days\": [\n   {\n      \"id\": 38,\n     \"day\": \"Monday\"\n},\n]\n}\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error: 'No clinic found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: string
+                    example: 'No clinic found'
+      tags:
+        - 'Manage Clinic'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: numeric
+                  description: required.
+                  example: '1'
+  /api/v1/medical stuff/manage-clinic/update:
+    post:
+      summary: 'Update clinic details'
+      operationId: updateClinicDetails
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error: 'No clinic found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: string
+                    example: 'No clinic found'
+      tags:
+        - 'Manage Clinic'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: numeric
+                  description: ''
+                  example: saepe
+                clinic_name:
+                  type: string
+                  description: ''
+                  example: perferendis
+                clinic_address:
+                  type: string
+                  description: ''
+                  example: qui
+                clinic_phone:
+                  type: numeric
+                  description: ''
+                  example: ab
+                day_id:
+                  type: array
+                  description: ''
+                  example:
+                    - nihil
+                  items:
+                    type: string
+                latitute:
+                  type: string
+                  description: ''
+                  example: sint
+                longitute:
+                  type: string
+                  description: ''
+                  example: ut
+                slot_date:
+                  type: array
+                  description: optional
+                  example:
+                    - consequatur
+                  items:
+                    type: string
+                slot_start_time:
+                  type: array
+                  description: optional
+                  example:
+                    - sed
+                  items:
+                    type: string
+                slot_end_time:
+                  type: array
+                  description: optional.
+                  example:
+                    - distinctio
+                  items:
+                    type: string
+                first_time_mode:
+                  type: array
+                  description: optional.
+                  example:
+                    - exercitationem
+                  items:
+                    type: string
+                second_time_mode:
+                  type: array
+                  description: optional.
+                  example:
+                    - temporibus
+                  items:
+                    type: string
+              required:
+                - id
+                - clinic_name
+                - clinic_address
+                - clinic_phone
+                - day_id
+                - latitute
+                - longitute
+  /api/v1/medical stuff/manage-clinic/delete:
+    post:
+      summary: 'Delete clinic details'
+      operationId: deleteClinicDetails
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers deleted successfully\"\n}\n @response 201{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}"
+      tags:
+        - 'Manage Clinic'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: numeric
+                  description: ''
+                  example: libero
+              required:
+                - id
+  /api/v1/medical stuff/manage-clinic/presentSheduleDate:
+    post:
+      summary: 'Present shedule date'
+      operationId: presentSheduleDate
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n \"statusCode\": 200,\n \"message\": \"Service Centers list\",\n \"data\": {\n         {\n             \"id\": 51,\n             \"slot_start_time\": \"2:00 PM\",\n             \"slot_end_time\": \"5:00 PM\",\n             \"slot_date\": \"2023-09-21\"\n         },\n         {\n             \"id\": 50,\n             \"slot_start_time\": \"1:00 PM\",\n             \"slot_end_time\": \"3:00 PM\",\n             \"slot_date\": \"2023-09-19\"\n         },\n }\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error: 'No clinic found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: string
+                    example: 'No clinic found'
+      tags:
+        - 'Manage Clinic'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: numeric
+                  description: ''
+                  example: magni
+              required:
+                - id
+  /api/v1/medical stuff/manage-clinic/deletePresentSheduleDate:
+    post:
+      summary: 'Delete Present shedule date'
+      operationId: deletePresentSheduleDate
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n \"statusCode\": 200,\n\"message\": \"Slot deleted successfully\",\n}\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  statusCode: 201
+                  error: 'No clinic found'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  statusCode:
+                    type: integer
+                    example: 201
+                  error:
+                    type: string
+                    example: 'No clinic found'
+      tags:
+        - 'Manage Clinic'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: numeric
+                  description: ''
+                  example: veritatis
+              required:
+                - id
+  /api/v1/patient/upcoming-appointment:
+    post:
+      summary: 'Upcoming appointment'
+      operationId: upcomingAppointment
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"data\": {\n        {\n            \"id\": 11,\n            \"patient_name\": \"John Does\",\n            \"patient_profile_picture\": \"patient/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg\",\n            \"doctor_name\": \"James Bond\",\n            \"doctor_profile_picture\": \"medical stuff/V0pUwsFgvg2bMGnRLx3ctmEhxaRLIIXE7SS3g5BJ.jpg\",\n            \"appointment_date\": \"2023-09-11\",\n            \"appointment_time\": \"01:00 PM\",\n            \"clinic_name\": \"ORM Medicle\",\n            \"clinic_address\": \"Rajarhat Main Road, Chinar Park, Kalipark, Tegharia, Newtown, Kolkata, West Bengal, India\",\n            \"duration\": \"30 min\",\n            \"appointment_status\": \"Done\"\n        }\n}\n}"
+      tags:
+        - 'Patient Appointment'
+  /api/v1/patient/appointment-history:
+    post:
+      summary: 'Appointment History'
+      operationId: appointmentHistory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"appointment\": {\n       {\n           \"id\": 10,\n           \"patient_name\": \"John Does\",\n           \"patient_profile_picture\": \"patient/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg\",\n           \"doctor_name\": \"Derick Veliz\",\n           \"doctor_profile_picture\": \"medical stuff/hkt0RnyhO4wSDMEpVrdNGdXYayxmjTaepELsZnu8.png\",\n           \"appointment_date\": \"2023-07-25\",\n           \"appointment_time\": \"01:30 PM\",\n           \"clinic_name\": \"Christan Medical Collage(CMS)\",\n           \"clinic_address\": \"Saltlake Sector V, Street Number 18, DP Block, Sector V, Bidhannagar, Kolkata, West Bengal, India\",\n           \"duration\": \"30 min\",\n           \"appointment_status\": \"Done\"\n       },\n}\n}"
+      tags:
+        - 'Patient Appointment'
+  /api/v1/patient/cancel-appointment:
+    post:
+      summary: 'Cancel Appointment'
+      operationId: cancelAppointment
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Appointment cancel successfully'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Appointment cancel successfully'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  message: 'The selected appointment id is invalid.'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'The selected appointment id is invalid.'
+      tags:
+        - 'Patient Appointment'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_id:
+                  type: integer
+                  description: ''
+                  example: 14
+              required:
+                - appointment_id
+  /api/v1/medical stuff-details:
+    post:
+      summary: 'Medical Stuff details Api'
+      operationId: doctorDetailsApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"status\": true,\n  \"statusCode\": 200,\n  \"data\": {\n      \"medical stuff\": {\n          \"id\": 4,\n          \"name\": \"James Bond\",\n          \"email\": \"james@yopmail.com\",\n          \"phone\": \"7485968695\",\n          \"gender\": \"Male\",\n          \"age\": \"2000-02-10\",\n          \"license_number\": \"DKM-74859686\",\n          \"profile_picture\": \"medical stuff/V0pUwsFgvg2bMGnRLx3ctmEhxaRLIIXE7SS3g5BJ.jpg\",\n          \"specializations\": [\n              {\n                  \"id\": 2,\n                  \"name\": \"Dentist\",\n              }\n          ]\n      },\n      \"clinic\": [\n          {\n              \"id\": 5,\n              \"user_id\": 4,\n              \"clinic_name\": \"Christan Medical Collage (CMC)\",\n              \"clinic_address\": \"Rajarhat, Rajarhat Main Road, Chinar Park, Kalipark, Tegharia, Gopalpur I, Kolkata, West Bengal, India\",\n              \"clinic_phone\": \"7412589635\",\n              \"longitute\": \"88.4528608\",\n              \"latitute\": \"22.6343954\",\n              \"distance\": 6.830848254188763\n          },\n\n      ]\n  }\n}"
+      tags:
+        - 'Patient Booking'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor_id:
+                  type: string
+                  description: 'The id of the medical stuff.'
+                  example: delectus
+              required:
+                - doctor_id
+      security: []
+  /api/v1/appointment-store:
+    post:
+      summary: 'Store Appointment'
+      operationId: storeAppointment
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Appointment booked successfully!'
+                  status: true
+                  data:
+                    user_id: 1
+                    doctor_id: 4
+                    clinic_id: 7
+                    appointment_id: '000000'
+                    appointment_date: '2021-08-02'
+                    appointment_time: '11:00 AM'
+                    appointment_status: Done
+                    booking_time: '2021-08-02 12:00:00'
+                    clinic_name: 'Life Medical'
+                    clinic_address: 'Park Street, Mullick Bazar, Beniapukur, Kolkata, West Bengal, India'
+                    clinic_phone: '7894561230'
+                    updated_at: '2021-08-02T12:00:00.000000Z'
+                    created_at: '2021-08-02T12:00:00.000000Z'
+                    id: 1
+                    user:
+                      id: 1
+                      name: 'Shilpi Chaki'
+                      email: shilpi@mailinator.com
+                      email_verified_at: null
+                      profile_picture: user/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png
+                      phone: '7894561230'
+                      year_of_experience: '4'
+                      license_number: UPS74856963
+                      location: Kolkata
+                      gender: female
+                      age: '2001-01-30'
+                      status: 1
+                      fcm_token: 'fTcKacaIV3mJaU4VbJ_4Ib:APA91bHgCcot6OOpAlysNgDKq54K9PnU6PjDM3tHdiWFm5KpPXDnVVfcfTJV2C4Q6wKk056fIp6zgOLbEU1DhAvN5SQqZGg0ew7qjKN_FAXyd9ORER4vMhjf1qLc9pY32gI7ZGIJLAaI'
+                      created_at: '2021-07-25T08:53:27.000000Z'
+                      updated_at: '2021-07-25T08:53:27.000000Z'
+                      deleted_at: null
+                properties:
+                  message:
+                    type: string
+                    example: 'Appointment booked successfully!'
+                  status:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                        example: 1
+                      doctor_id:
+                        type: integer
+                        example: 4
+                      clinic_id:
+                        type: integer
+                        example: 7
+                      appointment_id:
+                        type: string
+                        example: '000000'
+                      appointment_date:
+                        type: string
+                        example: '2021-08-02'
+                      appointment_time:
+                        type: string
+                        example: '11:00 AM'
+                      appointment_status:
+                        type: string
+                        example: Done
+                      booking_time:
+                        type: string
+                        example: '2021-08-02 12:00:00'
+                      clinic_name:
+                        type: string
+                        example: 'Life Medical'
+                      clinic_address:
+                        type: string
+                        example: 'Park Street, Mullick Bazar, Beniapukur, Kolkata, West Bengal, India'
+                      clinic_phone:
+                        type: string
+                        example: '7894561230'
+                      updated_at:
+                        type: string
+                        example: '2021-08-02T12:00:00.000000Z'
+                      created_at:
+                        type: string
+                        example: '2021-08-02T12:00:00.000000Z'
+                      id:
+                        type: integer
+                        example: 1
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'Shilpi Chaki'
+                          email:
+                            type: string
+                            example: shilpi@mailinator.com
+                          email_verified_at:
+                            type: string
+                            example: null
+                          profile_picture:
+                            type: string
+                            example: user/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png
+                          phone:
+                            type: string
+                            example: '7894561230'
+                          year_of_experience:
+                            type: string
+                            example: '4'
+                          license_number:
+                            type: string
+                            example: UPS74856963
+                          location:
+                            type: string
+                            example: Kolkata
+                          gender:
+                            type: string
+                            example: female
+                          age:
+                            type: string
+                            example: '2001-01-30'
+                          status:
+                            type: integer
+                            example: 1
+                          fcm_token:
+                            type: string
+                            example: 'fTcKacaIV3mJaU4VbJ_4Ib:APA91bHgCcot6OOpAlysNgDKq54K9PnU6PjDM3tHdiWFm5KpPXDnVVfcfTJV2C4Q6wKk056fIp6zgOLbEU1DhAvN5SQqZGg0ew7qjKN_FAXyd9ORER4vMhjf1qLc9pY32gI7ZGIJLAaI'
+                          created_at:
+                            type: string
+                            example: '2021-07-25T08:53:27.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2021-07-25T08:53:27.000000Z'
+                          deleted_at:
+                            type: string
+                            example: null
+      tags:
+        - 'Patient Booking'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                clinic_id:
+                  type: string
+                  description: ''
+                  example: voluptas
+                appointment_date:
+                  type: string
+                  description: ''
+                  example: sapiente
+                appointment_time:
+                  type: string
+                  description: ''
+                  example: fugiat
+              required:
+                - clinic_id
+                - appointment_date
+                - appointment_time
+      security: []
+  /api/v1/visitDate:
+    post:
+      summary: 'Service Centers Date and Time Slot'
+      operationId: clinicDateAndTimeSlot
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Service Centers Details'
+                  status: true
+                  data:
+                    -
+                      id: 46
+                      slot_date: '2023-09-11'
+                      slot_available: 2
+                    -
+                      id: 48
+                      slot_date: '2023-09-14'
+                      slot_available: 5
+                properties:
+                  message:
+                    type: string
+                    example: 'Service Centers Details'
+                  status:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 46
+                        slot_date: '2023-09-11'
+                        slot_available: 2
+                      -
+                        id: 48
+                        slot_date: '2023-09-14'
+                        slot_available: 5
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 46
+                        slot_date:
+                          type: string
+                          example: '2023-09-11'
+                        slot_available:
+                          type: integer
+                          example: 2
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The clinic id field is required.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The clinic id field is required.'
+      tags:
+        - 'Patient Booking'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                clinic_id:
+                  type: string
+                  description: ''
+                  example: quo
+              required:
+                - clinic_id
+      security: []
+  /api/v1/clinicVisitSlot:
+    post:
+      summary: 'Service Centers Visit available Slot Time'
+      operationId: clinicVisitAvailableSlotTime
+      description: '@bodyParam slot_id string required The id of the slot.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  {\n   \"message\": \"Service Centers Details\",\n   \"status\": true,\n   \"data\": [\n       {\n           \"id\": 46,\n           \"slot_date\": \"2023-09-11\",\n           \"slot_available\": 2\n       },\n       {\n           \"id\": 48,\n           \"slot_date\": \"2023-09-14\",\n           \"slot_available\": 5\n       },\n   ]\n}\n}"
+      tags:
+        - 'Patient Booking'
+      security: []
+  /api/v1/patient/chat-request:
+    post:
+      summary: 'Chat Request api'
+      operationId: chatRequestApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"status\": true,\n \"message\": \"Friend request sent successfully\",\n \"data\": {\n     \"id\": 25,\n     \"user_id\": 4,\n     \"friend_id\": 3,\n     \"status\": 1,  // 0 = pending, 1 = accepted, 2 = rejected\n     \"created_at\": \"2023-08-28T11:02:45.000000Z\",\n     \"updated_at\": \"2023-08-28T13:12:02.000000Z\"\n }\n}"
+      tags:
+        - 'Patient Chat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor_id:
+                  type: integer
+                  description: 'Medical Stuff Id.'
+                  example: 1
+              required:
+                - doctor_id
+  /api/v1/patient/chat-request-send:
+    post:
+      summary: 'Send Chat Request api'
+      operationId: sendChatRequestApi
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Patient Chat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor_id:
+                  type: integer
+                  description: 'Medical Stuff Id.'
+                  example: 1
+              required:
+                - doctor_id
+  /api/v1/patient/chat:
+    post:
+      summary: 'Patient Chat'
+      operationId: patientChat
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Chat List'
+                  data:
+                    -
+                      id: 12
+                      sender_id: '4'
+                      reciver_id: '3'
+                      message: 'James Bond accepted your chat request.'
+                      created_at: '2023-08-28T13:12:02.000000Z'
+                      updated_at: '2023-08-28T13:12:02.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Chat List'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 12
+                        sender_id: '4'
+                        reciver_id: '3'
+                        message: 'James Bond accepted your chat request.'
+                        created_at: '2023-08-28T13:12:02.000000Z'
+                        updated_at: '2023-08-28T13:12:02.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 12
+                        sender_id:
+                          type: string
+                          example: '4'
+                        reciver_id:
+                          type: string
+                          example: '3'
+                        message:
+                          type: string
+                          example: 'James Bond accepted your chat request.'
+                        created_at:
+                          type: string
+                          example: '2023-08-28T13:12:02.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-08-28T13:12:02.000000Z'
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": false,\n\"message\": \"Validation Error\",\n\"error\": {\n   \"friend_id\": [\n      \"The friend id field is required.\"\n  ]\n}"
+      tags:
+        - 'Patient Chat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                friend_id:
+                  type: integer
+                  description: ''
+                  example: 10
+              required:
+                - friend_id
+  /api/v1/patient/chat/friends:
+    post:
+      summary: 'Friend List'
+      operationId: friendList
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Friend List'
+                  data:
+                    -
+                      id: 25
+                      user_id: 4
+                      friend_id: 3
+                      status: 1
+                      created_at: '2023-08-28T11:02:45.000000Z'
+                      updated_at: '2023-09-28T06:17:47.000000Z'
+                      user:
+                        id: 4
+                        name: 'Nicolas Bond'
+                        email: james@yopmail.com
+                        phone: '7485968695'
+                        email_verified_at: null
+                        profile_picture: medical stuff/ZwlPxPwI5mQsgrhFlrSwxeiZTQXS0JS5mDqaEX4b.jpg
+                        year_of_experience: '4'
+                        license_number: DKM-74859686
+                        location: 'Kolkata, West Bengal, India'
+                        gender: Male
+                        age: '2000-02-10'
+                        fcm_token: 'eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN'
+                        status: 1
+                        deleted_at: null
+                        created_at: '2023-06-06T08:40:43.000000Z'
+                        updated_at: '2023-09-28T11:02:14.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Friend List'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 25
+                        user_id: 4
+                        friend_id: 3
+                        status: 1
+                        created_at: '2023-08-28T11:02:45.000000Z'
+                        updated_at: '2023-09-28T06:17:47.000000Z'
+                        user:
+                          id: 4
+                          name: 'Nicolas Bond'
+                          email: james@yopmail.com
+                          phone: '7485968695'
+                          email_verified_at: null
+                          profile_picture: medical stuff/ZwlPxPwI5mQsgrhFlrSwxeiZTQXS0JS5mDqaEX4b.jpg
+                          year_of_experience: '4'
+                          license_number: DKM-74859686
+                          location: 'Kolkata, West Bengal, India'
+                          gender: Male
+                          age: '2000-02-10'
+                          fcm_token: 'eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN'
+                          status: 1
+                          deleted_at: null
+                          created_at: '2023-06-06T08:40:43.000000Z'
+                          updated_at: '2023-09-28T11:02:14.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 25
+                        user_id:
+                          type: integer
+                          example: 4
+                        friend_id:
+                          type: integer
+                          example: 3
+                        status:
+                          type: integer
+                          example: 1
+                        created_at:
+                          type: string
+                          example: '2023-08-28T11:02:45.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-09-28T06:17:47.000000Z'
+                        user:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 4
+                            name:
+                              type: string
+                              example: 'Nicolas Bond'
+                            email:
+                              type: string
+                              example: james@yopmail.com
+                            phone:
+                              type: string
+                              example: '7485968695'
+                            email_verified_at:
+                              type: string
+                              example: null
+                            profile_picture:
+                              type: string
+                              example: medical stuff/ZwlPxPwI5mQsgrhFlrSwxeiZTQXS0JS5mDqaEX4b.jpg
+                            year_of_experience:
+                              type: string
+                              example: '4'
+                            license_number:
+                              type: string
+                              example: DKM-74859686
+                            location:
+                              type: string
+                              example: 'Kolkata, West Bengal, India'
+                            gender:
+                              type: string
+                              example: Male
+                            age:
+                              type: string
+                              example: '2000-02-10'
+                            fcm_token:
+                              type: string
+                              example: 'eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN'
+                            status:
+                              type: integer
+                              example: 1
+                            deleted_at:
+                              type: string
+                              example: null
+                            created_at:
+                              type: string
+                              example: '2023-06-06T08:40:43.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2023-09-28T11:02:14.000000Z'
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"status\": false,\n\"message\": \"No friends found\",\n}"
+      tags:
+        - 'Patient Chat'
+  /api/v1/patient/chat/send-request:
+    post:
+      summary: 'Send Chat Request toMedical Staff'
+      operationId: sendChatRequestToDoctor
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Patient Chat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor_id:
+                  type: string
+                  description: ''
+                  example: sapiente
+              required:
+                - doctor_id
+  /api/v1/patient/chat/permission:
+    post:
+      summary: 'Chat permission api'
+      operationId: chatPermissionApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'You are a member.'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'You are a member.'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  message: 'Your membership has been expired.'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Your membership has been expired.'
+      tags:
+        - 'Patient Chat'
+  /api/v1/patient/membership/list:
+    post:
+      summary: 'Membership List'
+      operationId: membershipList
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"data\": [\n    {\n        \"id\": 1,\n        \"plan_name\": \"Basic\",\n        \"plan_price\": \"100\",\n        \"plan_type\": \"Basic\",\n        \"plan_duration\": \"3\",\n        \"specifications\": [\n            {\n                \"id\": 1,\n                \"plan_id\": 1,\n                \"specification_name\": \"Domain Name                        \"\n            },\n            {\n                \"id\": 2,\n                \"plan_id\": 1,\n                \"specification_name\": \"Upto 8 Pages\"\n            }\n        ]\n    },\n]\n}"
+      tags:
+        - 'Patient Membership'
+  /api/v1/patient/membership/detailById:
+    post:
+      summary: 'Membership Details by id'
+      operationId: membershipDetailsById
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  * \"status\": true,\n\"data\": [\n    {\n        \"id\": 1,\n        \"plan_name\": \"Basic\",\n        \"plan_price\": \"100\",\n        \"plan_type\": \"Basic\",\n        \"plan_duration\": \"3\",\n        \"specifications\": [\n            {\n                \"id\": 1,\n                \"plan_id\": 1,\n                \"specification_name\": \"Domain Name                        \"\n            },\n            {\n                \"id\": 2,\n                \"plan_id\": 1,\n                \"specification_name\": \"Upto 8 Pages\"\n            }\n        ]\n    },\n]\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  message: 'The selected id is invalid.'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'The selected id is invalid.'
+      tags:
+        - 'Patient Membership'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: 'The id of the membership.'
+                  example: 8
+              required:
+                - id
+  /api/v1/patient/membership/payment:
+    post:
+      summary: 'Payment api'
+      operationId: paymentApi
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Patient Membership'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plan_id:
+                  type: integer
+                  description: 'The id of the membership.'
+                  example: 16
+                name:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                stripeToken:
+                  type: string
+                  description: ''
+                  example: fugit
+              required:
+                - plan_id
+                - name
+                - stripeToken
+  /api/v1/patient/notifications:
+    post:
+      summary: 'Get Patient Notification'
+      operationId: getPatientNotification
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"status\": true,\n\"data\": [\n   {\n       \"id\": 5,\n       \"send_to\": \"Patient\",\n       \"message\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\",\n       \"created_at\": \"2023-06-26T10:51:59.000000Z\",\n       \"updated_at\": \"2023-06-26T10:51:59.000000Z\"\n   },\n]\n}"
+      tags:
+        - 'Patient Notification'
+  /api/v1/patient/payment-history:
+    post:
+      summary: 'Payment history'
+      operationId: paymentHistory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  membership:
+                    id: 6
+                    amount: '200'
+                    membership_expiry_date: '2024-01-11'
+                    currency: usd
+                    plan_name: Standard
+                    plan_duration: '6'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  membership:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                      amount:
+                        type: string
+                        example: '200'
+                      membership_expiry_date:
+                        type: string
+                        example: '2024-01-11'
+                      currency:
+                        type: string
+                        example: usd
+                      plan_name:
+                        type: string
+                        example: Standard
+                      plan_duration:
+                        type: string
+                        example: '6'
+      tags:
+        - 'Patient Payment History'
+  /api/v1/patient/getProfile:
+    post:
+      summary: 'Get Patient Profile'
+      operationId: getPatientProfile
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  message: 'Profile fetched successfully'
+                  data:
+                    id: 3
+                    name: 'John Doe'
+                    gender: Male
+                    age: '2008-01-26'
+                    email: john@yopmail.com
+                    phone: '8596769586'
+                    profile_picture: patient/07y44Yk7Fgs2DF7v5ErJtbwceKDFIlLpP3mrYkn6.jpg
+                    status: 1
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Profile fetched successfully'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 3
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      gender:
+                        type: string
+                        example: Male
+                      age:
+                        type: string
+                        example: '2008-01-26'
+                      email:
+                        type: string
+                        example: john@yopmail.com
+                      phone:
+                        type: string
+                        example: '8596769586'
+                      profile_picture:
+                        type: string
+                        example: patient/07y44Yk7Fgs2DF7v5ErJtbwceKDFIlLpP3mrYkn6.jpg
+                      status:
+                        type: integer
+                        example: 1
+      tags:
+        - 'Patient Profile'
+  /api/v1/patient/updateProfile:
+    post:
+      summary: 'Update Patient Profile'
+      operationId: updatePatientProfile
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile fetched successfully\",\n}"
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The phone has already been taken.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The phone has already been taken.'
+      tags:
+        - 'Patient Profile'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'optional The name of the Patient.'
+                  example: dolorem
+                email:
+                  type: string
+                  description: 'optional The email of the Patient.'
+                  example: emard.delmer@example.net
+                age:
+                  type: date
+                  description: 'optional The age of the Patient.'
+                  example: possimus
+                phone:
+                  type: numeric
+                  description: 'optional The phone of the Patient.'
+                  example: molestiae
+  /api/v1/patient/changePassword:
+    post:
+      summary: 'Change Password'
+      operationId: changePassword
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  message: 'Password changed successfully'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Password changed successfully'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The old_password and password must be different.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The old_password and password must be different.'
+      tags:
+        - 'Patient Profile'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_password:
+                  type: string
+                  description: 'The old_password of the Patient.'
+                  example: enim
+                new_password:
+                  type: string
+                  description: 'The password of the Patient.'
+                  example: consequatur
+                confirm_password:
+                  type: string
+                  description: 'The password_confirmation of the Patient.'
+                  example: error
+              required:
+                - current_password
+                - new_password
+                - confirm_password
+  /api/v1/patient/updateProfileImage:
+    post:
+      summary: 'Upload profile image'
+      operationId: uploadProfileImage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  statusCode: 200
+                  message: 'Profile updated successfully'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Profile updated successfully'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'The profile_picture filled is required.'
+                properties:
+                  error:
+                    type: string
+                    example: 'The profile_picture filled is required.'
+      tags:
+        - 'Patient Profile'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                profile_picture:
+                  type: string
+                  format: binary
+                  description: 'The profile_picture of the Patient.'
+              required:
+                - profile_picture
+  /api/v1/patient/show-request:
+    post:
+      summary: ''
+      operationId: postApiV1PatientShowRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Patient Video Calling'
+      security: []
+  /api/v1/patient/video-payment:
+    post:
+      summary: 'Video Payment Api'
+      operationId: videoPaymentApi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Payment successfully'
+                  join_url: 'https://us05web.zoom.us/j/81211397496?pwd=DOa4DEKfxOCQw2Em6aSPdGpSYlsbqh.1'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Payment successfully'
+                  join_url:
+                    type: string
+                    example: 'https://us05web.zoom.us/j/81211397496?pwd=DOa4DEKfxOCQw2Em6aSPdGpSYlsbqh.1'
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  message: 'The videocall id field is required.'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'The videocall id field is required.'
+      tags:
+        - 'Patient Video Calling'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                videocall_id:
+                  type: integer
+                  description: ''
+                  example: 14
+                payment_id:
+                  type: string
+                  description: ''
+                  example: ducimus
+                response:
+                  type: json
+                  description: ''
+                  example: eligendi
+              required:
+                - videocall_id
+                - payment_id
+                - response
+      security: []
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Chat
+    description: ''
+  -
+    name: 'Medical Stuff Booking History'
+    description: ''
+  -
+    name: 'Medical Stuff Chat'
+    description: ''
+  -
+    name: 'Medical Stuff Dashboard'
+    description: ''
+  -
+    name: 'Medical Stuff Notification'
+    description: ''
+  -
+    name: 'Medical Stuff Profile'
+    description: ''
+  -
+    name: 'Medical Stuff Settings'
+    description: ''
+  -
+    name: 'Medical Stuff Video Calling'
+    description: ''
+  -
+    name: 'Forget Password'
+    description: ''
+  -
+    name: 'Home Page Api''s'
+    description: ''
+  -
+    name: 'Manage Clinic'
+    description: ''
+  -
+    name: 'Patient Appointment'
+    description: ''
+  -
+    name: 'Patient Booking'
+    description: ''
+  -
+    name: 'Patient Chat'
+    description: ''
+  -
+    name: 'Patient Membership'
+    description: ''
+  -
+    name: 'Patient Notification'
+    description: ''
+  -
+    name: 'Patient Payment History'
+    description: ''
+  -
+    name: 'Patient Profile'
+    description: ''
+  -
+    name: 'Patient Video Calling'
+    description: ''

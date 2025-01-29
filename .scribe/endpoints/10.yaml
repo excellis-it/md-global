@@ -1,0 +1,58 @@
+name: 'Medical Stuff Notification'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/notifications
+    metadata:
+      groupName: 'Medical Stuff Notification'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Notification'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "data": [
+          {
+          "id": 1,
+          "send_to": "doctor",
+          "message": "Your appointment is booked with patient name: test patient",
+          "created_at": "2021-09-28T10:20:00.000000Z",
+          "updated_at": "2021-09-28T10:20:00.000000Z"
+          },
+          {
+          "id": 2,
+          "send_to": "doctor",
+          "message": "Your appointment is booked with patient name: test patient",
+          "created_at": "2021-09-28T10:20:00.000000Z",
+           "updated_at": "2021-09-28T10:20:00.000000Z"
+          }
+          ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
