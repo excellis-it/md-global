@@ -1,0 +1,747 @@
+name: 'Manage Clinic'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/list
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Service Centers List'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          *"status": true,
+             "statusCode": 200,
+             "message": "Service Centers list",
+             "data": {
+                     {
+                         "id": 4,
+                         "clinic_name": "The Healing Clinic",
+                         "clinic_address": "Indian Association For The Cultivation Of Science, Poddar Nagar, Jadavpur, Kolkata, West Bengal, India",
+                         "clinic_phone": "7485968695",
+                         "clinic_opening_days": [
+                             {
+                                 "id": 38,
+                                 "day": "Monday"
+                             },
+                             {
+                                 "id": 39,
+                                 "day": "Tuesday"
+                             },
+                             {
+                                 "id": 40,
+                                 "day": "Wednesday"
+                             },
+                             {
+                                 "id": 41,
+                                 "day": "Thursday"
+                             }
+                         ]
+                     }
+             }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 201,
+          "message": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/create
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Clinic'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Service Centers list",
+          "data": {
+                 {
+                     "id": 1,
+                     "day": "Sunday"
+                 },
+                 {
+                     "id": 2,
+                     "day": "Monday"
+                 },
+                 {
+                     "id": 3,
+                     "day": "Tuesday"
+                 },
+                 {
+                     "id": 4,
+                     "day": "Wednesday"
+                 },
+                 {
+                     "id": 5,
+                     "day": "Thursday"
+                 },
+                 {
+                     "id": 6,
+                     "day": "Friday"
+                 },
+                 {
+                     "id": 7,
+                     "day": "Saturday"
+                 }
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 201,
+          "error": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/store
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store clinic details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      clinic_name:
+        name: clinic_name
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        custom: []
+      clinic_address:
+        name: clinic_address
+        description: ''
+        required: true
+        example: quas
+        type: string
+        enumValues: []
+        custom: []
+      clinic_phone:
+        name: clinic_phone
+        description: ''
+        required: true
+        example: blanditiis
+        type: numeric
+        enumValues: []
+        custom: []
+      day_id:
+        name: day_id
+        description: ''
+        required: true
+        example:
+          - sapiente
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      latitute:
+        name: latitute
+        description: ''
+        required: true
+        example: laboriosam
+        type: string
+        enumValues: []
+        custom: []
+      longitute:
+        name: longitute
+        description: ''
+        required: true
+        example: modi
+        type: string
+        enumValues: []
+        custom: []
+      slot_date:
+        name: slot_date
+        description: ''
+        required: true
+        example:
+          - in
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      slot_start_time:
+        name: slot_start_time
+        description: ''
+        required: true
+        example:
+          - nisi
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      slot_end_time:
+        name: slot_end_time
+        description: required.
+        required: false
+        example:
+          - non
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      first_time_mode:
+        name: first_time_mode
+        description: required.
+        required: false
+        example:
+          - reprehenderit
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      second_time_mode:
+        name: second_time_mode
+        description: required.
+        required: false
+        example:
+          - provident
+        type: 'string[]'
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      clinic_name: et
+      clinic_address: quas
+      clinic_phone: blanditiis
+      day_id:
+        - sapiente
+      latitute: laboriosam
+      longitute: modi
+      slot_date:
+        - in
+      slot_start_time:
+        - nisi
+      slot_end_time:
+        - non
+      first_time_mode:
+        - reprehenderit
+      second_time_mode:
+        - provident
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Service Centers details added successfully"
+          }
+
+           @response 201{
+          "status": false,
+          "statusCode": 201,
+          "error": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/edit
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Edit clinic details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: required.
+        required: false
+        example: '1'
+        type: numeric
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Service Centers list",
+          "data": {
+              "id": 4,
+             "clinic_name": "The Healing Clinic",
+            "clinic_address": "Indian Association For The Cultivation Of Science, Poddar Nagar, Jadavpur, Kolkata, West Bengal, India",
+           "clinic_phone": "7485968695",
+          "clinic_opening_days": [
+             {
+                "id": 38,
+               "day": "Monday"
+          },
+          ]
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 201,
+          "error": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/update
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update clinic details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: saepe
+        type: numeric
+        enumValues: []
+        custom: []
+      clinic_name:
+        name: clinic_name
+        description: ''
+        required: true
+        example: perferendis
+        type: string
+        enumValues: []
+        custom: []
+      clinic_address:
+        name: clinic_address
+        description: ''
+        required: true
+        example: qui
+        type: string
+        enumValues: []
+        custom: []
+      clinic_phone:
+        name: clinic_phone
+        description: ''
+        required: true
+        example: ab
+        type: numeric
+        enumValues: []
+        custom: []
+      day_id:
+        name: day_id
+        description: ''
+        required: true
+        example:
+          - nihil
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      latitute:
+        name: latitute
+        description: ''
+        required: true
+        example: sint
+        type: string
+        enumValues: []
+        custom: []
+      longitute:
+        name: longitute
+        description: ''
+        required: true
+        example: ut
+        type: string
+        enumValues: []
+        custom: []
+      slot_date:
+        name: slot_date
+        description: optional
+        required: false
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      slot_start_time:
+        name: slot_start_time
+        description: optional
+        required: false
+        example:
+          - sed
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      slot_end_time:
+        name: slot_end_time
+        description: optional.
+        required: false
+        example:
+          - distinctio
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      first_time_mode:
+        name: first_time_mode
+        description: optional.
+        required: false
+        example:
+          - exercitationem
+        type: 'string[]'
+        enumValues: []
+        custom: []
+      second_time_mode:
+        name: second_time_mode
+        description: optional.
+        required: false
+        example:
+          - temporibus
+        type: 'string[]'
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      id: saepe
+      clinic_name: perferendis
+      clinic_address: qui
+      clinic_phone: ab
+      day_id:
+        - nihil
+      latitute: sint
+      longitute: ut
+      slot_date:
+        - consequatur
+      slot_start_time:
+        - sed
+      slot_end_time:
+        - distinctio
+      first_time_mode:
+        - exercitationem
+      second_time_mode:
+        - temporibus
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+           "statusCode": 201,
+          "error": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/delete
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete clinic details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: libero
+        type: numeric
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      id: libero
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Service Centers deleted successfully"
+          }
+           @response 201{
+          "status": false,
+          "statusCode": 201,
+          "error": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/presentSheduleDate
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Present shedule date'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: magni
+        type: numeric
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      id: magni
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+           "statusCode": 200,
+           "message": "Service Centers list",
+           "data": {
+                   {
+                       "id": 51,
+                       "slot_start_time": "2:00 PM",
+                       "slot_end_time": "5:00 PM",
+                       "slot_date": "2023-09-21"
+                   },
+                   {
+                       "id": 50,
+                       "slot_start_time": "1:00 PM",
+                       "slot_end_time": "3:00 PM",
+                       "slot_date": "2023-09-19"
+                   },
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 201,
+          "error": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/manage-clinic/deletePresentSheduleDate
+    metadata:
+      groupName: 'Manage Clinic'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Present shedule date'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: veritatis
+        type: numeric
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      id: veritatis
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+           "statusCode": 200,
+          "message": "Slot deleted successfully",
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 201,
+          "error": "No clinic found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

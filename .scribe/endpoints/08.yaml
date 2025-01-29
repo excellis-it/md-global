@@ -1,0 +1,293 @@
+name: 'Medical Stuff Chat'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/chat/request-list
+    metadata:
+      groupName: 'Medical Stuff Chat'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff Chat Request'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "message": "Chat Request List",
+          "data": [
+              {
+                  "id": 2,
+                  "profile_picture": null,
+                  "gender": "Male",
+                  "name": "Chatrapati Shivaji",
+                  "age": "1978-10-10"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/chat/request-accept
+    metadata:
+      groupName: 'Medical Stuff Chat'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff Chat Request Accept'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      friend_id:
+        name: friend_id
+        description: ''
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      friend_id: 6
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "message": "Chat Request Accepted",
+          "data": []
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/chat/request-reject
+    metadata:
+      groupName: 'Medical Stuff Chat'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff Chat Request Reject'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      friend_id:
+        name: friend_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      friend_id: 17
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "message": "Chat Request Rejected",
+          "data": []
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/chat
+    metadata:
+      groupName: 'Medical Stuff Chat'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff Chat'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      friend_id:
+        name: friend_id
+        description: ''
+        required: true
+        example: 9
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      friend_id: 9
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+           "message": "Chat List",
+           "data": [
+               {
+                   "id": 12,
+                   "sender_id": "4",
+                   "reciver_id": "3",
+                   "message": "James Bond accepted your chat request.",
+                   "created_at": "2023-08-28T13:12:02.000000Z",
+                   "updated_at": "2023-08-28T13:12:02.000000Z"
+               }
+           ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "message": "Validation Error",
+          "error": {
+             "friend_id": [
+                "The friend id field is required."
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/chat/friends
+    metadata:
+      groupName: 'Medical Stuff Chat'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Friend List'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+            "message": "Friend List",
+            "data": [
+                {
+                    "id": 25,
+                    "user_id": 4,
+                    "friend_id": 3,
+                    "status": 1,
+                    "created_at": "2023-08-28T11:02:45.000000Z",
+                    "updated_at": "2023-09-28T06:17:47.000000Z",
+                    "friend": {
+                        "id": 3,
+                        "name": "John Does",
+                        "email": "john@yopmail.com",
+                        "phone": "8596769586",
+                        "email_verified_at": null,
+                        "profile_picture": "patient/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg",
+                        "year_of_experience": null,
+                        "license_number": null,
+                        "location": "Kolkata",
+                        "gender": "Male",
+                        "age": "2000-01-06",
+                        "fcm_token": "eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN",
+                        "status": 1,
+                        "deleted_at": null,
+                        "created_at": "2023-05-30T04:51:16.000000Z",
+                        "updated_at": "2023-09-05T08:47:47.000000Z"
+                    }
+                }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

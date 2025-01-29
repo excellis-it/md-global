@@ -1,0 +1,227 @@
+name: 'Forget Password'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/forget-password
+    metadata:
+      groupName: 'Forget Password'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Forget Password Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Email of the Patient.'
+        required: true
+        example: john@yopmail.com
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      email: john@yopmail.com
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": true,
+           "statusCode": 200,
+           "message": "OTP has been sent to your email"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+           "statusCode": 201,
+          "error": {
+          "email": [
+          "The email field is required."
+          ]
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/otp-verification
+    metadata:
+      groupName: 'Forget Password'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'OTP Verification Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      otp:
+        name: otp
+        description: 'OTP of the Patient.'
+        required: true
+        example: '123456'
+        type: numeric
+        enumValues: []
+        custom: []
+      email:
+        name: email
+        description: 'Email of the Patient.'
+        required: true
+        example: john@yopmail.com
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      otp: '123456'
+      email: john@yopmail.com
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "OTP verified successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 401,
+          "error": "OTP is expired"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/reset-password
+    metadata:
+      groupName: 'Forget Password'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Reset Password Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      password:
+        name: password
+        description: 'Password of the Patient.'
+        required: true
+        example: '123456'
+        type: string
+        enumValues: []
+        custom: []
+      confirm_password:
+        name: confirm_password
+        description: 'Confirm Password of the Patient.'
+        required: true
+        example: '123456'
+        type: string
+        enumValues: []
+        custom: []
+      email:
+        name: email
+        description: 'Email of the Patient.'
+        required: true
+        example: john@yopmail.com
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      password: '123456'
+      confirm_password: '123456'
+      email: john@yopmail.com
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "message": "Password has been reset successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 201,
+          "error": {
+          "password": [
+          "The password field is required."
+          ],
+          "confirm_password": [
+          "The confirm password field is required."
+          ],
+          "email": [
+          "The email field is required."
+          ]
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -1,0 +1,111 @@
+name: 'Patient Video Calling'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/show-request
+    metadata:
+      groupName: 'Patient Video Calling'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/patient/video-payment
+    metadata:
+      groupName: 'Patient Video Calling'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Video Payment Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      videocall_id:
+        name: videocall_id
+        description: ''
+        required: true
+        example: 14
+        type: integer
+        enumValues: []
+        custom: []
+      payment_id:
+        name: payment_id
+        description: ''
+        required: true
+        example: ducimus
+        type: string
+        enumValues: []
+        custom: []
+      response:
+        name: response
+        description: ''
+        required: true
+        example: eligendi
+        type: json
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      videocall_id: 14
+      payment_id: ducimus
+      response: eligendi
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "message": "Payment successfully",
+          "join_url": "https://us05web.zoom.us/j/81211397496?pwd=DOa4DEKfxOCQw2Em6aSPdGpSYlsbqh.1"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "message": "The videocall id field is required."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
