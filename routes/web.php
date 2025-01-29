@@ -56,6 +56,9 @@ use App\Http\Controllers\Patient\SettingController;
 use App\Http\Controllers\Patient\ZoomController as PatientZoomController;
 use App\Models\Chat;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Admin\RolePermissionController;
+use App\Http\Controllers\Admin\UserController;
+use Spatie\Permission\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +93,24 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function () {
     Route::post('profile/update', [ProfileController::class, 'profileUpdate'])->name('admin.profile.update');
     Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
     Route::get('/membership-bar-chart', [DashboardController::class, 'membershipBarChart'])->name('admin.membership.bar.chart');
+
+    Route::get('manage-roles', [RolePermissionController::class, 'index'])->name('admin.manage-roles');
+    Route::get('manage-roles/create', [RolePermissionController::class, 'create'])->name('admin.manage-roles.create');
+    Route::post('manage-roles/store', [RolePermissionController::class, 'store'])->name('admin.manage-roles.store');
+    Route::get('manage-roles/edit/{role}', [RolePermissionController::class, 'edit'])->name('admin.manage-roles.edit');
+    Route::post('manage-roles/update/{role}', [RolePermissionController::class, 'update'])->name('admin.manage-roles.update');
+    Route::post('manage-roles/delete/{role}', [RolePermissionController::class, 'destroy'])->name('admin.manage-roles.destroy');
+    Route::post('manage-roles/permissions', [RolePermissionController::class, 'getPermissions'])->name('admin.roles.permissions');
+
+
+    Route::get('manage-users', [UserController::class, 'index'])->name('admin.manage-users');
+    Route::get('manage-users/create', [UserController::class, 'create'])->name('admin.manage-users.create');
+    Route::post('manage-users', [UserController::class, 'store'])->name('admin.manage-users.store');
+    Route::get('manage-users/{user}/edit', [UserController::class, 'edit'])->name('admin.manage-users.edit');
+    Route::put('manage-users/{user}', [UserController::class, 'update'])->name('admin.manage-users.update');
+    Route::delete('manage-users/{user}', [UserController::class, 'destroy'])->name('admin.manage-users.destroy');
+
+
 
     Route::prefix('password')->group(function () {
         Route::get('/', [ProfileController::class, 'password'])->name('admin.password'); // password change
@@ -273,7 +294,7 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function () {
     Route::post('/help-and-support-list-ajax', [HelpAndSupportController::class, 'helpAndSupportListAjax'])->name('help-and-support.list-ajax');
 
     // video call price
-    Route::prefix('video-call-price')->group(function(){
+    Route::prefix('video-call-price')->group(function () {
         Route::get('/', [VideoCallingController::class, 'videoCallPrice'])->name('video-call-price.index');
         // create
         Route::get('/create', [VideoCallingController::class, 'create'])->name('video-call-price.create');
@@ -284,7 +305,6 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin'], function () {
     });
 
     Route::get('/delete/{id}', [VideoCallingController::class, 'delete'])->name('video-call-price.delete');
-
 });
 
 
