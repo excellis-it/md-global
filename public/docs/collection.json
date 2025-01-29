@@ -1,0 +1,2442 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/127.0.0.1:8000"
+        }
+    ],
+    "info": {
+        "name": "MD Global",
+        "_postman_id": "ad29cbe5-e2fb-46e3-8c20-c6f5c86051af",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "description": "",
+            "item": [
+                {
+                    "name": "Login Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"john@yopmail.com\",\"password\":\"12345678\",\"type\":\"Doctor,Patient\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"statusCode\": 200,\n \"message\": \"Login successfully\",\n     \"data\": {\n    \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMzEyNTk2OWIyYjU0MzQzNjAzOGMzMzdiMGQ0NmU1YjIyYzBjYmNmMDRiOTUxNDc4NzA5YTc2NGQ5YTU4NDcwNmM1MWRhNDBmYjcwMTg2ODciLCJpYXQiOjE2ODYxMjIxNTEuODYxNjA2LCJuYmYiOjE2ODYxMjIxNTEuODYxNjEyLCJleHAiOjE3MTc3NDQ1NTEuODM5MTIxLCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.oD9hpcugxOhepc-dbeXf94itOJz5G9OXnV2ZQB05FU80cvwOALpEwuCUC30mczb8tnvKdWxOKK0EPOyUZKv6Y9TXkYCfH0BTpQaikKaomZL_4TqnCrJ9ToZSMjpaSWdVdqoyG5Voakw__nehoNUMup_tcFaGh4IxoFQLGZEIbsmQKOxQvQx9doJo6oU6aY2Nvoetk7GmH4XIPX_D4ThQZF5GWdmQ-H6T4Cv9OfnLL5B5aBJbYHcszkJh_HZ4FJ6ViKt61UlPI6ymYUTpC_lmroXigUkQ5Lw5_a7NxgNbd8NHY-893jLMNry5l51vdSG4m9tmcFY1T7WxPTQZ_WjT2I6YAJrxS3tvJaycI7UqPrhRaWtDW3jMYn-Drn1NaUkawzBO7yLsfDQd_WvPu2zFiw6uKvN9ChN_vs551ssx1mF400sx7sx6O194VswDkstNEoSRbKqbxdSISkJSVmSeVwqwt3fSTf0QGFIJxssBI4psyUWcbu-i64g0E_6gPfQ6PELIJN1H7vCdNZbGxjlcW6xGql0D1vXlL307QMLKdhXbmkQhUKHpjaKvgi430K9m16AxOm3QfJr5fguU7AHTHafpeDxaTEgsLiK2Zo7ZovTzEJKj898gA0btJF2LrAtllB4BzYr9Mc4H2oJ49mA9swqjqbCobTosdTcb7NIoThM\",\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"John Doe\",\n        \"email\": \"john@yopmail.com\",\n        \"status\": 1\n    }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": {\n   \"message\": [\n      \"The email field is required.\",\n     \"The password field is required.\"\n  ]\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"status\": false,\n \"statusCode\": 201,\n \"error\": \"Email id & password was invalid!\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Register Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"John Doe\",\"email\":\"john@yopmail.com\",\"gender\":\"Male,Female,Other\",\"phone\":\"9876543210\",\"password\":\"12345678\",\"confirm_password\":\"12345678\",\"type\":\"Doctor,Patient\",\"age\":\"ut\",\"location\":\"John Doe\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"status\": true,\n \"statusCode\": 200,\n \"data\": {\n  \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWVkZWJjZWQ5MzE4OGFjM2YwNGQ1ZTgwYjdhZmFiNjE2N2Q5ZjgzYmM4Zjc0OGI3MDQyNDkzOTJlZTdkYjIzYzUwZTFhODdlMGY0ZTJiYjIiLCJpYXQiOjE2ODYxMjY1MTEuNzkxNDc2LCJuYmYiOjE2ODYxMjY1MTEuNzkxNDgxLCJleHAiOjE3MTc3NDg5MTEuNzczMjE4LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.R6_pNkfP_tbzdV0J9grl1nPXrjjaaBriTIyKSEvfFoFgupAGNSBZm7Z1e7yRsDowh5PWpXs5eHGBBvD06S1sh9YgF5kE9j4JopVntNgG1Ksnugn6UXQXIW2el5jAWRAQCH_MKByrkw3ktZ1_PGz7gsnmC0PWGI53YtEN3cOleU26e9EiHAS5-8uaU7mwQGlU8C_SGF7rS--QsX9_PX3eRWekJ9ssPkysdabZRWeD1WD4xEJUMuG7x_8vckF4k6zsiykJa43ZCRxAQmqJ81rma1leBZ8Li9wtkk3u5lrmPGq1NI3CZB0PMaC0koH2MyiZvAsM-zB_LaALpkLxpWuPR1xu1UxF7LKfFJ8Qw-2Bnelblh1hdu5Iie5vEVQsV2n6kjXNCPLRRaKYEZIWixAyOZQkJiunyuCskgfcPaBZLLMCPZ80by9OoMhPQTMI1FmSJU6gEse8YuN-P33F4TE9QKcCkUh8ATSUeOUN65auQ2h-cEnACxcB2O5k90ohyISDvBQrUp3EN32OLuJHJUWchISGtVvAhL9Ui5iwXDNrnPMQVqMHpHANwK90jpBQ68t8vwmAoKY_pvVDmnzRdx2CwPEtgNfvyXP6k5lUsi6BsFyKJ83mqOMPdF8XbotN0bpyWOA6tw14lR-SHS3IeIk0doMbqAiseuHlZqzaFQ6Uaa0\",\n   \"user\": {\n       \"name\": \"Shilpi Chaki\",\n       \"email\": \"shilpi@yopmail.com\",\n       \"gender\": \"Male\",\n       \"phone\": \"7485968600\",\n       \"status\": 1,\n       \"updated_at\": \"2023-06-07T08:28:31.000000Z\",\n       \"created_at\": \"2023-06-07T08:28:31.000000Z\",\n       \"id\": 5\n  }\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n \"status\": false,\n\"statusCode\": 401,\n\"error\": \"Email id & password was invalid!\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Chat",
+            "description": "",
+            "item": [
+                {
+                    "name": "Send Message api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user-chat",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user-chat"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"reciver_id\":\"vero\",\"message\":\"provident\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Medical Stuff Booking History",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Booking History",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/booking-history\/list-with-filter",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/booking-history\/list-with-filter"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"date\":\"2021-09-11\",\"clinic_id\":[1,2],\"status\":[\"Pending\",\"Done\",\"Cancelled\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n   \"data\": {\n       \"appointments\": {\n               {\n                   \"id\": 11,\n                   \"patient_name\": \"John Doe\",\n                   \"patient_profile_picture\": \"patient\/07y44Yk7Fgs2DF7v5ErJtbwceKDFIlLpP3mrYkn6.jpg\",\n                   \"appointment_date\": \"2023-09-11\",\n                   \"appointment_time\": \"01:00 PM\",\n                   \"clinic_name\": \"ORM Medicle\",\n                   \"clinic_address\": \"Rajarhat Main Road, Chinar Park, Kalipark, Tegharia, Newtown, Kolkata, West Bengal, India\",\n                   \"duration\": \"30 min\",\n                   \"appointment_status\": \"Done\"\n               }\n       },\n       \"clinics\": {\n               {\n                   \"id\": 4,\n                   \"clinic_name\": \"The Healing Clinic\"\n               },\n               {\n                   \"id\": 8,\n                   \"clinic_name\": \"ORM Medicle\"\n               }\n       }\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medical Stuff Chat",
+            "description": "",
+            "item": [
+                {
+                    "name": "Medical Stuff Chat Request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/chat\/request-list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/chat\/request-list"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"Chat Request List\",\n\"data\": [\n    {\n        \"id\": 2,\n        \"profile_picture\": null,\n        \"gender\": \"Male\",\n        \"name\": \"Chatrapati Shivaji\",\n        \"age\": \"1978-10-10\"\n    }\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Medical Stuff Chat Request Accept",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/chat\/request-accept",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/chat\/request-accept"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"friend_id\":6}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"Chat Request Accepted\",\n\"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Medical Stuff Chat Request Reject",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/chat\/request-reject",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/chat\/request-reject"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"friend_id\":17}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"Chat Request Rejected\",\n\"data\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Medical Stuff Chat",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/chat",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/chat"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"friend_id\":9}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n \"message\": \"Chat List\",\n \"data\": [\n     {\n         \"id\": 12,\n         \"sender_id\": \"4\",\n         \"reciver_id\": \"3\",\n         \"message\": \"James Bond accepted your chat request.\",\n         \"created_at\": \"2023-08-28T13:12:02.000000Z\",\n         \"updated_at\": \"2023-08-28T13:12:02.000000Z\"\n     }\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"message\": \"Validation Error\",\n\"error\": {\n   \"friend_id\": [\n      \"The friend id field is required.\"\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Friend List",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/chat\/friends",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/chat\/friends"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n  \"message\": \"Friend List\",\n  \"data\": [\n      {\n          \"id\": 25,\n          \"user_id\": 4,\n          \"friend_id\": 3,\n          \"status\": 1,\n          \"created_at\": \"2023-08-28T11:02:45.000000Z\",\n          \"updated_at\": \"2023-09-28T06:17:47.000000Z\",\n          \"friend\": {\n              \"id\": 3,\n              \"name\": \"John Does\",\n              \"email\": \"john@yopmail.com\",\n              \"phone\": \"8596769586\",\n              \"email_verified_at\": null,\n              \"profile_picture\": \"patient\/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg\",\n              \"year_of_experience\": null,\n              \"license_number\": null,\n              \"location\": \"Kolkata\",\n              \"gender\": \"Male\",\n              \"age\": \"2000-01-06\",\n              \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n              \"status\": 1,\n              \"deleted_at\": null,\n              \"created_at\": \"2023-05-30T04:51:16.000000Z\",\n              \"updated_at\": \"2023-09-05T08:47:47.000000Z\"\n          }\n      }\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medical Stuff Dashboard",
+            "description": "",
+            "item": [
+                {
+                    "name": "Medical Stuff Dashboard",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/dashboard",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/dashboard"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"Dashboard\",\n\"data\": {\n\"chat_request_count\": 0,\n\"booking_history_count\": 0,\n\"clinic_count\": 0,\n\"chat_request\": []\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n\"status\": false,\n\"message\": \"Something went wrong\",\n\"error\": \"...\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medical Stuff Notification",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Notification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/notifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/notifications"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"success\": true,\n\"data\": [\n{\n\"id\": 1,\n\"send_to\": \"medical stuff\",\n\"message\": \"Your appointment is booked with patient name: test patient\",\n\"created_at\": \"2021-09-28T10:20:00.000000Z\",\n\"updated_at\": \"2021-09-28T10:20:00.000000Z\"\n},\n{\n\"id\": 2,\n\"send_to\": \"medical stuff\",\n\"message\": \"Your appointment is booked with patient name: test patient\",\n\"created_at\": \"2021-09-28T10:20:00.000000Z\",\n \"updated_at\": \"2021-09-28T10:20:00.000000Z\"\n}\n]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medical Stuff Profile",
+            "description": "",
+            "item": [
+                {
+                    "name": "GetMedical Staff Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/getProfile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/getProfile"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile fetched successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization\/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff\/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "UpdateMedical Staff Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/updateProfile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/updateProfile"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"quae\",\"email\":\"adell68@example.net\",\"gender\":\"sunt\",\"age\":\"perspiciatis\",\"phone\":\"laborum\",\"specialization_id\":[\"nisi\"],\"license_number\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile fetched successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization\/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff\/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The email has already been taken.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The phone has already been taken.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Change Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/changePassword",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/changePassword"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"current_password\":\"placeat\",\"new_password\":\"ea\",\"confirm_password\":\"qui\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Password changed successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization\/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff\/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The old_password and password must be different.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Upload profile image",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/updateProfileImage",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/updateProfileImage"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "profile_picture",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile updated successfully\",\n\"data\": {\n    \"specializations\": [\n        {\n            \"id\": 2,\n            \"name\": \"Dentist\",\n            \"slug\": \"dentist\",\n            \"image\": \"specialization\/1dyavyARmT4SiXK9izxsvF1vjW0PYXI28mB94TuB.png\",\n            \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n            \"status\": 1,\n            \"created_at\": \"2023-06-06T12:40:19.000000Z\",\n            \"updated_at\": \"2023-06-14T08:51:04.000000Z\"\n        },\n    ],\n    \"user\": {\n            \"id\": 4,\n            \"name\": \"James Bond\",\n            \"email\": \"james@yopmail.com\",\n            \"phone\": \"08596769586\",\n            \"gender\": \"Male\",\n            \"age\": \"2001-01-30\",\n            \"license_number\": \"UPS74856963\",\n            \"profile_picture\": \"medical stuff\/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n            \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n            \"status\": 1,\n            \"specializations\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"ENT Specialist\",\n                    \"pivot\": {\n                        \"doctor_id\": 4,\n                        \"specialization_id\": 4\n                    }\n                }\n            ]\n    }\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The profile_picture filled is required.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medical Stuff Settings",
+            "description": "",
+            "item": [
+                {
+                    "name": "Help and Support",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/help-and-support",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/help-and-support"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"subject\":\"qui\",\"message\":\"eum\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Privacy Policy",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/privacy-policy",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/privacy-policy"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n\"data\": {\n    \"id\": 1,\n    \"content\": \"Why do we use it?\\r\\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n    \"created_at\": \"2023-06-28T09:40:56.000000Z\",\n    \"updated_at\": \"2023-06-28T09:45:32.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "About Us",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/about-us",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/about-us"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"data\": {\n    \"id\": 1,\n    \"content\": \"Lorem ipsum dolor sit amet consectetur. Pharetra netus cursus nec facilisis. Quis ultrices morbi maecenas lobortis. Mattis sed nisi amet nisi elit nunc nibh in. Ac convallis fringilla tortor morbi vel massa et et. Elementum pellentesque quis nunc elit. Urna pellentesque venenatis egestas ac neque a. Consequat mi at quis sed tincidunt leo sed sit. Pretium mauris imperdiet ornare nunc ut enim. Erat viverra urna sed quis et varius lectus ipsum mollis. Ullamcorper pellentesque lectus sed tellus fames dolor turpis nibh pharetra. Aliquam tortor nascetur nec neque porttitor molestie quis non arcu. Pretium lectus eu vitae diam sapien pellentesque nisl. Euismod auctor arcu cras facilisi tortor facilisis consectetur.\\r\\n\\r\\n        Amet ultrices augue lorem iaculis tortor massa velit. Phasellus sapien non ac tortor convallis fringilla. Sapien massa nunc aliquam platea pulvinar morbi dictum. Quis eget at magna sem mi dui elit. Nisl leo facilisis faucibus non posuere enim senectus. Lorem volutpat ante mollis pulvinar nibh tristique eu. Neque malesuada enim tellus tristique sem senectus ornare pharetra. Ipsum est a bibendum pretium viverra cras turpis massa.\\r\\n\\r\\n        Neque id tristique auctor accumsan dolor lorem praesent volutpat cras. Id auctor in tempor egestas ornare faucibus. Viverra nisi quis lacinia lorem sed tellus mattis aliquet. Sed nam nulla sit eu feugiat nisi elementum urna laoreet. Nulla sit interdum amet nisl et. Fames senectus cursus ullamcorper varius feugiat.\",\n    \"created_at\": \"2023-06-28T09:26:19.000000Z\",\n    \"updated_at\": \"2023-06-28T09:35:58.000000Z\"\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Account",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/delete-account",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/delete-account"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"Account deleted successfully.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Medical Stuff Video Calling",
+            "description": "",
+            "item": [
+                {
+                    "name": "Send Video Request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/send-video-request",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/send-video-request"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"reciver_id\":8,\"sender_id\":16}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n{\n    \"status\": true,\n    \"message\": \"Metting created successfully\",\n    \"start_url\": \"https:\/\/us05web.zoom.us\/s\/89209152434?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InI2eVpFNVBQUnVHZE5wWEluUGVMeWciLCJpc3MiOiJ3ZWIiLCJzayI6IjM5MTg1MDQ1NjAyMDA5NjEyNDUiLCJzdHkiOjEsIndjZCI6InVzMDUiLCJjbHQiOjAsIm1udW0iOiI4OTIwOTE1MjQzNCIsImV4cCI6MTY5OTYxMzU4NCwiaWF0IjoxNjk5NjA2Mzg0LCJhaWQiOiJJWHhJcG10LVJOYVRmT0ZDR1R3OHNnIiwiY2lkIjoiIn0.fFz0IUs9Tt64ec3ytltR6Hmi2fjB6B_ggrvEnZPqRnY\"\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Forget Password",
+            "description": "",
+            "item": [
+                {
+                    "name": "Forget Password Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/forget-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/forget-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"john@yopmail.com\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"statusCode\": 200,\n \"message\": \"OTP has been sent to your email\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n \"statusCode\": 201,\n\"error\": {\n\"email\": [\n\"The email field is required.\"\n]\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "OTP Verification Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/otp-verification",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/otp-verification"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"otp\":\"123456\",\"email\":\"john@yopmail.com\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"OTP verified successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 401,\n\"error\": \"OTP is expired\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Reset Password Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reset-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reset-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"password\":\"123456\",\"confirm_password\":\"123456\",\"email\":\"john@yopmail.com\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Password has been reset successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": {\n\"password\": [\n\"The password field is required.\"\n],\n\"confirm_password\": [\n\"The confirm password field is required.\"\n],\n\"email\": [\n\"The email field is required.\"\n]\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Home Page Api's",
+            "description": "",
+            "item": [
+                {
+                    "name": "Symptoms Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/symptoms",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/symptoms"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"data\": [\n    {\n        \"id\": 2,\n        \"specialization_id\": 2,\n        \"symptom_name\": \"Oral Piercing Infection\",\n        \"symptom_description\": \"<p>Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.<\/p>\",\n        \"symptom_image\": \"symptoms\/J1Qbab05PP4gVTbBJ3bJ5bW6up46R99VaXpp4uXi.png\",\n        \"symptom_status\": 1,\n        \"created_at\": \"2023-06-06T07:13:51.000000Z\",\n        \"updated_at\": \"2023-06-06T07:13:51.000000Z\"\n    }\n  ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"message\": \"No Symptoms Found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Specialization Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/specializations",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/specializations"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"statusCode\": 200,\n \"data\": [\n     {\n         \"id\": 3,\n         \"name\": \"Dermatologist\",\n         \"slug\": \"dermatologist\",\n         \"image\": \"specializations\/V2TlHIoJvN7dL2bYdkUoh2GYhwitQotuohwGNqKe.png\",\n         \"description\": \"Visit your medical stuff for joint pain, sprains, arthritis, and other bone pains.\",\n         \"status\": 1,\n         \"created_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"updated_at\": \"2023-06-06T10:55:47.000000Z\"\n     }\n   ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n \"statusCode\": 201,\n \"message\": \"No Specialization Found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "All doctors Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/all-doctors-by-location",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/all-doctors-by-location"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"statusCode\": 200,\n \"data\": [\n     {\n         \"id\": 13,\n         \"name\": \"Shreeja Sadhukhan\",\n         \"email\": \"shreeja@yopmail.com\",\n         \"phone\": \"7475850123\",\n         \"email_verified_at\": \"null\",\n         \"profile_picture\": \"medical stuff\/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg\",\n         \"year_of_experience\": \"3\",\n         \"license_number\": \"null\",\n         \"location\": \"Purba Bardhaman\",\n         \"gender\": \"Female\",\n         \"age\": \"22\",\n         \"status\": 1,\n         \"fcm_token\": null,\n         \"created_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"updated_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"deleted_at\": null\n     }\n   ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n \"statusCode\": 201,\n \"message\": \"NoMedical Staff Found in your area!\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Medical Stuff List as per symptoms\/specializations Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/doctors",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/doctors"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"type\":\"dolores\",\"slug\":\"vero\",\"filter\":\"minus\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"statusCode\": 200,\n \"data\": [\n     {\n         \"id\": 13,\n         \"name\": \"Shreeja Sadhukhan\",\n         \"email\": \"shreeja@yopmail.com\",\n         \"phone\": \"7475850123\",\n         \"email_verified_at\": \"null\",\n         \"profile_picture\": \"medical stuff\/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg\",\n         \"year_of_experience\": \"3\",\n         \"license_number\": \"null\",\n         \"location\": \"Purba Bardhaman\",\n         \"gender\": \"Female\",\n         \"age\": \"22\",\n         \"status\": 1,\n         \"fcm_token\": null,\n         \"created_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"updated_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"deleted_at\": null\n     }\n   ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n \"statusCode\": 201,\n \"message\": \"NoMedical Staff Found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Medical Stuff\/Service Centers List as per search Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/search-doctors",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/search-doctors"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"statusCode\": 200,\n \"data\": [\n     {\n         \"id\": 13,\n         \"name\": \"Shreeja Sadhukhan\",\n         \"email\": \"shreeja@yopmail.com\",\n         \"phone\": \"7475850123\",\n         \"email_verified_at\": \"null\",\n         \"profile_picture\": \"medical stuff\/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg\",\n         \"year_of_experience\": \"3\",\n         \"license_number\": \"null\",\n         \"location\": \"Purba Bardhaman\",\n         \"gender\": \"Female\",\n         \"age\": \"22\",\n         \"status\": 1,\n         \"fcm_token\": null,\n         \"created_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"updated_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"deleted_at\": null\n     }\n   ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"status\": false,\n \"statusCode\": 404,\n \"message\": \"NoMedical Staff or Service Centers Found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Location Store Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/store-location",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/store-location"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"latitude\":\"possimus\",\"longitude\":\"consequuntur\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"statusCode\": 200,\n \"data\": [\n     {\n         \"id\": 23,\n         \"user_id\": 14,\n         \"session_id\": null,\n         \"ip_address\": \"127.0.0.1\",\n         \"address\": \"J92M+P72, Kolkata Station Rd, Belgachia, Kolkata, West Bengal 700004, India\",\n         \"latitude\": \"22.5764753\",\n         \"longitude\": \"88.4306861\",\n         \"created_at\": \"2023-06-06T10:55:47.000000Z\",\n         \"updated_at\": \"2023-06-06T10:55:47.000000Z\"\n     }\n   ]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Manage Clinic",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Service Centers List",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/list"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n*\"status\": true,\n   \"statusCode\": 200,\n   \"message\": \"Service Centers list\",\n   \"data\": {\n           {\n               \"id\": 4,\n               \"clinic_name\": \"The Healing Clinic\",\n               \"clinic_address\": \"Indian Association For The Cultivation Of Science, Poddar Nagar, Jadavpur, Kolkata, West Bengal, India\",\n               \"clinic_phone\": \"7485968695\",\n               \"clinic_opening_days\": [\n                   {\n                       \"id\": 38,\n                       \"day\": \"Monday\"\n                   },\n                   {\n                       \"id\": 39,\n                       \"day\": \"Tuesday\"\n                   },\n                   {\n                       \"id\": 40,\n                       \"day\": \"Wednesday\"\n                   },\n                   {\n                       \"id\": 41,\n                       \"day\": \"Thursday\"\n                   }\n               ]\n           }\n   }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"message\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Clinic",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers list\",\n\"data\": {\n       {\n           \"id\": 1,\n           \"day\": \"Sunday\"\n       },\n       {\n           \"id\": 2,\n           \"day\": \"Monday\"\n       },\n       {\n           \"id\": 3,\n           \"day\": \"Tuesday\"\n       },\n       {\n           \"id\": 4,\n           \"day\": \"Wednesday\"\n       },\n       {\n           \"id\": 5,\n           \"day\": \"Thursday\"\n       },\n       {\n           \"id\": 6,\n           \"day\": \"Friday\"\n       },\n       {\n           \"id\": 7,\n           \"day\": \"Saturday\"\n       }\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store clinic details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/store",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/store"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"clinic_name\":\"et\",\"clinic_address\":\"quas\",\"clinic_phone\":\"blanditiis\",\"day_id\":[\"sapiente\"],\"latitute\":\"laboriosam\",\"longitute\":\"modi\",\"slot_date\":[\"in\"],\"slot_start_time\":[\"nisi\"],\"slot_end_time\":[\"non\"],\"first_time_mode\":[\"reprehenderit\"],\"second_time_mode\":[\"provident\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers details added successfully\"\n}\n\n @response 201{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit clinic details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/edit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/edit"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":\"1\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers list\",\n\"data\": {\n    \"id\": 4,\n   \"clinic_name\": \"The Healing Clinic\",\n  \"clinic_address\": \"Indian Association For The Cultivation Of Science, Poddar Nagar, Jadavpur, Kolkata, West Bengal, India\",\n \"clinic_phone\": \"7485968695\",\n\"clinic_opening_days\": [\n   {\n      \"id\": 38,\n     \"day\": \"Monday\"\n},\n]\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update clinic details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":\"saepe\",\"clinic_name\":\"perferendis\",\"clinic_address\":\"qui\",\"clinic_phone\":\"ab\",\"day_id\":[\"nihil\"],\"latitute\":\"sint\",\"longitute\":\"ut\",\"slot_date\":[\"consequatur\"],\"slot_start_time\":[\"sed\"],\"slot_end_time\":[\"distinctio\"],\"first_time_mode\":[\"exercitationem\"],\"second_time_mode\":[\"temporibus\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n \"statusCode\": 201,\n\"error\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete clinic details",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/delete",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/delete"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":\"libero\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Service Centers deleted successfully\"\n}\n @response 201{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Present shedule date",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/presentSheduleDate",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/presentSheduleDate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":\"magni\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n \"statusCode\": 200,\n \"message\": \"Service Centers list\",\n \"data\": {\n         {\n             \"id\": 51,\n             \"slot_start_time\": \"2:00 PM\",\n             \"slot_end_time\": \"5:00 PM\",\n             \"slot_date\": \"2023-09-21\"\n         },\n         {\n             \"id\": 50,\n             \"slot_start_time\": \"1:00 PM\",\n             \"slot_end_time\": \"3:00 PM\",\n             \"slot_date\": \"2023-09-19\"\n         },\n }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Present shedule date",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff\/manage-clinic\/deletePresentSheduleDate",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff\/manage-clinic\/deletePresentSheduleDate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":\"veritatis\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n \"statusCode\": 200,\n\"message\": \"Slot deleted successfully\",\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"statusCode\": 201,\n\"error\": \"No clinic found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Patient Appointment",
+            "description": "",
+            "item": [
+                {
+                    "name": "Upcoming appointment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/upcoming-appointment",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/upcoming-appointment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"data\": {\n        {\n            \"id\": 11,\n            \"patient_name\": \"John Does\",\n            \"patient_profile_picture\": \"patient\/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg\",\n            \"doctor_name\": \"James Bond\",\n            \"doctor_profile_picture\": \"medical stuff\/V0pUwsFgvg2bMGnRLx3ctmEhxaRLIIXE7SS3g5BJ.jpg\",\n            \"appointment_date\": \"2023-09-11\",\n            \"appointment_time\": \"01:00 PM\",\n            \"clinic_name\": \"ORM Medicle\",\n            \"clinic_address\": \"Rajarhat Main Road, Chinar Park, Kalipark, Tegharia, Newtown, Kolkata, West Bengal, India\",\n            \"duration\": \"30 min\",\n            \"appointment_status\": \"Done\"\n        }\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Appointment History",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/appointment-history",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/appointment-history"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"appointment\": {\n       {\n           \"id\": 10,\n           \"patient_name\": \"John Does\",\n           \"patient_profile_picture\": \"patient\/NJr51HG9dfGvIIfpJVSuHgI7Ps4NkQJdOPLWqSLy.jpg\",\n           \"doctor_name\": \"Derick Veliz\",\n           \"doctor_profile_picture\": \"medical stuff\/hkt0RnyhO4wSDMEpVrdNGdXYayxmjTaepELsZnu8.png\",\n           \"appointment_date\": \"2023-07-25\",\n           \"appointment_time\": \"01:30 PM\",\n           \"clinic_name\": \"Christan Medical Collage(CMS)\",\n           \"clinic_address\": \"Saltlake Sector V, Street Number 18, DP Block, Sector V, Bidhannagar, Kolkata, West Bengal, India\",\n           \"duration\": \"30 min\",\n           \"appointment_status\": \"Done\"\n       },\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Cancel Appointment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/cancel-appointment",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/cancel-appointment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"appointment_id\":14}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"Appointment cancel successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"message\": \"The selected appointment id is invalid.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Patient Booking",
+            "description": "",
+            "item": [
+                {
+                    "name": "Medical Stuff details Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medical stuff-details",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medical stuff-details"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"doctor_id\":\"delectus\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n  \"statusCode\": 200,\n  \"data\": {\n      \"medical stuff\": {\n          \"id\": 4,\n          \"name\": \"James Bond\",\n          \"email\": \"james@yopmail.com\",\n          \"phone\": \"7485968695\",\n          \"gender\": \"Male\",\n          \"age\": \"2000-02-10\",\n          \"license_number\": \"DKM-74859686\",\n          \"profile_picture\": \"medical stuff\/V0pUwsFgvg2bMGnRLx3ctmEhxaRLIIXE7SS3g5BJ.jpg\",\n          \"specializations\": [\n              {\n                  \"id\": 2,\n                  \"name\": \"Dentist\",\n              }\n          ]\n      },\n      \"clinic\": [\n          {\n              \"id\": 5,\n              \"user_id\": 4,\n              \"clinic_name\": \"Christan Medical Collage (CMC)\",\n              \"clinic_address\": \"Rajarhat, Rajarhat Main Road, Chinar Park, Kalipark, Tegharia, Gopalpur I, Kolkata, West Bengal, India\",\n              \"clinic_phone\": \"7412589635\",\n              \"longitute\": \"88.4528608\",\n              \"latitute\": \"22.6343954\",\n              \"distance\": 6.830848254188763\n          },\n\n      ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store Appointment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/appointment-store",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/appointment-store"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"clinic_id\":\"voluptas\",\"appointment_date\":\"sapiente\",\"appointment_time\":\"fugiat\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"message\": \"Appointment booked successfully!\",\n  \"status\": true,\n    \"data\": {\n         \"user_id\": 1,\n         \"doctor_id\": 4,\n         \"clinic_id\": 7,\n         \"appointment_id\": \"000000\",\n         \"appointment_date\": \"2021-08-02\",\n         \"appointment_time\": \"11:00 AM\",\n          \"appointment_status\": \"Done\",\n          \"booking_time\": \"2021-08-02 12:00:00\",\n          \"clinic_name\": \"Life Medical\",\n           \"clinic_address\": \"Park Street, Mullick Bazar, Beniapukur, Kolkata, West Bengal, India\",\n         \"clinic_phone\": \"7894561230\",\n         \"updated_at\": \"2021-08-02T12:00:00.000000Z\",\n         \"created_at\": \"2021-08-02T12:00:00.000000Z\",\n         \"id\": 1,\n         \"user\": {\n             \"id\": 1,\n             \"name\": \"Shilpi Chaki\",\n             \"email\": \"shilpi@mailinator.com\",\n             \"email_verified_at\": null,\n             \"profile_picture\": \"user\/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png\",\n             \"phone\": \"7894561230\",\n             \"year_of_experience\": \"4\",\n             \"license_number\": \"UPS74856963\",\n             \"location\": \"Kolkata\",\n             \"gender\": \"female\",\n             \"age\": \"2001-01-30\",\n             \"status\": 1,\n             \"fcm_token\": \"fTcKacaIV3mJaU4VbJ_4Ib:APA91bHgCcot6OOpAlysNgDKq54K9PnU6PjDM3tHdiWFm5KpPXDnVVfcfTJV2C4Q6wKk056fIp6zgOLbEU1DhAvN5SQqZGg0ew7qjKN_FAXyd9ORER4vMhjf1qLc9pY32gI7ZGIJLAaI\",\n             \"created_at\": \"2021-07-25T08:53:27.000000Z\",\n             \"updated_at\": \"2021-07-25T08:53:27.000000Z\",\n             \"deleted_at\": null\n         }\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Service Centers Date and Time Slot",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/visitDate",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/visitDate"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"clinic_id\":\"quo\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Service Centers Details\",\n\"status\": true,\n\"data\": [\n    {\n        \"id\": 46,\n        \"slot_date\": \"2023-09-11\",\n        \"slot_available\": 2\n    },\n    {\n        \"id\": 48,\n        \"slot_date\": \"2023-09-14\",\n        \"slot_available\": 5\n    }\n    ]\n }",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"error\": \"The clinic id field is required.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Service Centers Visit available Slot Time",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/clinicVisitSlot",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/clinicVisitSlot"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "@bodyParam slot_id string required The id of the slot.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  {\n   \"message\": \"Service Centers Details\",\n   \"status\": true,\n   \"data\": [\n       {\n           \"id\": 46,\n           \"slot_date\": \"2023-09-11\",\n           \"slot_available\": 2\n       },\n       {\n           \"id\": 48,\n           \"slot_date\": \"2023-09-14\",\n           \"slot_available\": 5\n       },\n   ]\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Patient Chat",
+            "description": "",
+            "item": [
+                {
+                    "name": "Chat Request api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/chat-request",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/chat-request"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"doctor_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n \"message\": \"Friend request sent successfully\",\n \"data\": {\n     \"id\": 25,\n     \"user_id\": 4,\n     \"friend_id\": 3,\n     \"status\": 1,  \/\/ 0 = pending, 1 = accepted, 2 = rejected\n     \"created_at\": \"2023-08-28T11:02:45.000000Z\",\n     \"updated_at\": \"2023-08-28T13:12:02.000000Z\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Send Chat Request api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/chat-request-send",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/chat-request-send"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"doctor_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Patient Chat",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/chat",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/chat"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"friend_id\":10}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n \"message\": \"Chat List\",\n \"data\": [\n     {\n         \"id\": 12,\n         \"sender_id\": \"4\",\n         \"reciver_id\": \"3\",\n         \"message\": \"James Bond accepted your chat request.\",\n         \"created_at\": \"2023-08-28T13:12:02.000000Z\",\n         \"updated_at\": \"2023-08-28T13:12:02.000000Z\"\n     }\n ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"message\": \"Validation Error\",\n\"error\": {\n   \"friend_id\": [\n      \"The friend id field is required.\"\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Friend List",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/chat\/friends",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/chat\/friends"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n  \"message\": \"Friend List\",\n  \"data\": [\n      {\n          \"id\": 25,\n          \"user_id\": 4,\n          \"friend_id\": 3,\n          \"status\": 1,\n          \"created_at\": \"2023-08-28T11:02:45.000000Z\",\n          \"updated_at\": \"2023-09-28T06:17:47.000000Z\",\n          \"user\": {\n              \"id\": 4,\n              \"name\": \"Nicolas Bond\",\n              \"email\": \"james@yopmail.com\",\n              \"phone\": \"7485968695\",\n              \"email_verified_at\": null,\n              \"profile_picture\": \"medical stuff\/ZwlPxPwI5mQsgrhFlrSwxeiZTQXS0JS5mDqaEX4b.jpg\",\n              \"year_of_experience\": \"4\",\n              \"license_number\": \"DKM-74859686\",\n              \"location\": \"Kolkata, West Bengal, India\",\n              \"gender\": \"Male\",\n              \"age\": \"2000-02-10\",\n              \"fcm_token\": \"eyo_Z9a_EQkcwF1y_TjA-U:APA91bFvEyoQw3XaMNheNcHlQMQISc-sB2b3RWySS515RaMauTX1RCKrinBcf5-4FhZeLtoB-BYV4K0khjO8pD1ZTi257s3A6_sH36SZGN4tBdS1AlUo3L2sBaXKpZoI0gwq-MWETDfN\",\n              \"status\": 1,\n              \"deleted_at\": null,\n              \"created_at\": \"2023-06-06T08:40:43.000000Z\",\n              \"updated_at\": \"2023-09-28T11:02:14.000000Z\"\n          }\n      }\n  ]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"status\": false,\n\"message\": \"No friends found\",\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Send Chat Request toMedical Staff",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/chat\/send-request",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/chat\/send-request"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"doctor_id\":\"sapiente\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Chat permission api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/chat\/permission",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/chat\/permission"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"You are a member.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"message\": \"Your membership has been expired.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Patient Membership",
+            "description": "",
+            "item": [
+                {
+                    "name": "Membership List",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/membership\/list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/membership\/list"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"data\": [\n    {\n        \"id\": 1,\n        \"plan_name\": \"Basic\",\n        \"plan_price\": \"100\",\n        \"plan_type\": \"Basic\",\n        \"plan_duration\": \"3\",\n        \"specifications\": [\n            {\n                \"id\": 1,\n                \"plan_id\": 1,\n                \"specification_name\": \"Domain Name                        \"\n            },\n            {\n                \"id\": 2,\n                \"plan_id\": 1,\n                \"specification_name\": \"Upto 8 Pages\"\n            }\n        ]\n    },\n]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Membership Details by id",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/membership\/detailById",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/membership\/detailById"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":8}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  * \"status\": true,\n\"data\": [\n    {\n        \"id\": 1,\n        \"plan_name\": \"Basic\",\n        \"plan_price\": \"100\",\n        \"plan_type\": \"Basic\",\n        \"plan_duration\": \"3\",\n        \"specifications\": [\n            {\n                \"id\": 1,\n                \"plan_id\": 1,\n                \"specification_name\": \"Domain Name                        \"\n            },\n            {\n                \"id\": 2,\n                \"plan_id\": 1,\n                \"specification_name\": \"Upto 8 Pages\"\n            }\n        ]\n    },\n]\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"status\": false,\n \"message\": \"The selected id is invalid.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Payment api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/membership\/payment",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/membership\/payment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"plan_id\":16,\"name\":\"voluptatem\",\"stripeToken\":\"fugit\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Patient Notification",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Patient Notification",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/notifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/notifications"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": true,\n\"data\": [\n   {\n       \"id\": 5,\n       \"send_to\": \"Patient\",\n       \"message\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\",\n       \"created_at\": \"2023-06-26T10:51:59.000000Z\",\n       \"updated_at\": \"2023-06-26T10:51:59.000000Z\"\n   },\n]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Patient Payment History",
+            "description": "",
+            "item": [
+                {
+                    "name": "Payment history",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/payment-history",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/payment-history"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"membership\": {\n        \"id\": 6,\n        \"amount\": \"200\",\n        \"membership_expiry_date\": \"2024-01-11\",\n        \"currency\": \"usd\",\n        \"plan_name\": \"Standard\",\n        \"plan_duration\": \"6\"\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Patient Profile",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Patient Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/getProfile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/getProfile"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"status\": true,\n \"statusCode\": 200,\n \"message\": \"Profile fetched successfully\",\n \"data\": {\n     \"id\": 3,\n     \"name\": \"John Doe\",\n     \"gender\": \"Male\",\n     \"age\": \"2008-01-26\",\n     \"email\": \"john@yopmail.com\",\n     \"phone\": \"8596769586\",\n     \"profile_picture\": \"patient\/07y44Yk7Fgs2DF7v5ErJtbwceKDFIlLpP3mrYkn6.jpg\",\n     \"status\": 1\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Patient Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/updateProfile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/updateProfile"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"dolorem\",\"email\":\"emard.delmer@example.net\",\"age\":\"possimus\",\"phone\":\"molestiae\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile fetched successfully\",\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The email has already been taken.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The phone has already been taken.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Change Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/changePassword",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/changePassword"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"current_password\":\"enim\",\"new_password\":\"consequatur\",\"confirm_password\":\"error\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Password changed successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The old_password and password must be different.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Upload profile image",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/updateProfileImage",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/updateProfileImage"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "profile_picture",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"statusCode\": 200,\n\"message\": \"Profile updated successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"error\": \"The profile_picture filled is required.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Patient Video Calling",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/v1\/patient\/show-request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/show-request",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/show-request"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Video Payment Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/patient\/video-payment",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/patient\/video-payment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"videocall_id\":14,\"payment_id\":\"ducimus\",\"response\":\"eligendi\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"status\": true,\n\"message\": \"Payment successfully\",\n\"join_url\": \"https:\/\/us05web.zoom.us\/j\/81211397496?pwd=DOa4DEKfxOCQw2Em6aSPdGpSYlsbqh.1\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"status\": false,\n\"message\": \"The videocall id field is required.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

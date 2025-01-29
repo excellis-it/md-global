@@ -1,0 +1,1559 @@
+:root {
+    --main-color: #2782ff;
+    --blue-color: #2782ff;
+    --dark-blue: #121926;
+    --white-color: #fff;
+    --black-color: #000;
+    --semi-black: #020613;
+    --main-font: "Fira Sans", sans-serif;
+}
+
+@media (min-width: 1450px) {
+    .container {
+        max-width: 1500px;
+    }
+}
+
+@media (max-width: 1600px) {
+    #cssmenu > ul > li > a {
+        padding: 18px 10px;
+        font-size: 14px;
+    }
+
+    .slide .slide__content--headings .title {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .slide .slide__content--headings .top-title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .para1 p {
+        font-size: 24px;
+        line-height: 34px;
+    }
+
+    .dev-con {
+        padding: 60px 0px;
+    }
+
+    .dev-con-box-wrap {
+        padding-top: 100px;
+    }
+
+    .social-icon ul li {
+        margin-right: 4px;
+    }
+
+    .team-head h4 {
+        font-size: 14px;
+    }
+
+    .login_form .form-group {
+        padding-bottom: 10px;
+    }
+
+    .login_form .toggle {
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    .feeling-sec-wrap .head-1 {
+        padding: 15px !important;
+    }
+
+    .feel-slide {
+        padding: 0px 0px;
+    }
+
+    .app-doc-img img {
+        width: 100%;
+    }
+
+    .edit-btn-1 {
+        margin-right: 6px;
+    }
+
+    .cl-edit {
+        padding: 15px 0px;
+    }
+    .l-navbar {
+        height: 100%;
+    }
+}
+
+@media (max-width: 1440px) {
+    .slide .slide__content--headings .top-title {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    #cssmenu > ul > li > a {
+        padding: 12px 9px;
+        font-size: 14px;
+    }
+
+    .mn-btn a {
+        color: var(--white-color);
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 23px;
+    }
+
+    .scroll_btm_1 .scroll_text_1 {
+        left: -1%;
+    }
+
+    .wht-slide-h h3 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .slide .slide__content--headings .title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .head-1 h2 {
+        font-weight: 700;
+        font-size: 40px;
+    }
+
+    .wht-serv .slick-nav.prev-arrow {
+        left: -6%;
+    }
+
+    .wht-serv .slick-nav.next-arrow {
+        left: -6%;
+    }
+
+    .login_sec_left_bg {
+        height: 100vh;
+    }
+
+
+    .find-doc-slide {
+        padding: 20px 0px;
+    }
+    .slct-date-time::before {
+        width: 70%;
+    }
+    .myapp-div-wrap {
+        padding: 10px 15px;
+    }
+    .profile-text {
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 1366px) {
+       .head-1 h2 {
+        font-weight: 700;
+        font-size: 35px;
+    }
+
+    .wht-serv .slick-nav.prev-arrow {
+        left: -6%;
+    }
+
+    .wht-serv .slick-nav.next-arrow {
+        left: -6%;
+    }
+
+    .abt-inr {
+        position: absolute;
+        top: 17%;
+    }
+
+    .main-btn a {
+        padding: 20px 35px;
+        font-size: 12px;
+    }
+
+    .cat-box h4 {
+        font-size: 20px;
+    }
+
+    .login-logo-head h1 {
+        font-size: 36px;
+    }
+
+    .res-head h1 {
+        font-size: 36px;
+    }
+
+    .login-logo-para p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .app-doc-img img {
+        width: 100%;
+    }
+
+    .wrk-div {
+        background-image: none;
+    }
+    .edit-btn-1 span {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+    .confirm-btn {
+        padding: 10px;
+    }
+    .confirm-btn a h4 {
+        font-size: 0;
+    }
+    .confirm-btn a h4 span {
+        font-size: 12px;
+    }
+    .inr-bnr-text h1 {
+        font-size: 65px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .slide .slide__content--headings .title {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .slide .slide__content--headings .top-title {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .blog-inr {
+        padding: 60px 0px;
+    }
+
+    .width_545 {
+        padding: 30px;
+    }
+
+    #cssmenu > ul > li > a {
+        padding: 15px 5px;
+        font-size: 12px;
+    }
+
+    .app-doc-img img {
+        width: 100%;
+    }
+    .booking-history-table .table-responsive .table tbody tr td {
+        width: 21%;
+    }
+    .mn-btn a {
+        padding: 15px !important;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .wht-serv {
+        margin-top: 0;
+        margin-left: 0%;
+    }
+    .wht-we-do {
+        padding: 50px 0px;
+    }
+    .service::before {
+        height: 100%;
+    }
+
+    .serv-box {
+        margin-bottom: 20px;
+    }
+
+    .service {
+        padding: 50px 0px;
+    }
+
+    .abt-foremost {
+        padding: 20px 0px 20px;
+    }
+
+    .doc-img {
+        padding-bottom: 20px;
+    }
+
+    .search-btn {
+        display: block;
+    }
+
+    .search-box-wrap {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-btn a {
+        padding: 13px 20px !important;
+        border-radius: 10px;
+    }
+
+    .app-doc-img img {
+        width: 100%;
+    }
+
+    .edit-btn-1 span {
+        width: 35px;
+        height: 35px;
+    }
+
+    .edit-btn-1 {
+        margin-right: 10px;
+    }
+
+    .cl-edit {
+        padding: 0;
+    }
+    .location-div {
+        width: 60%;
+    }
+    .app-time-1 {
+        margin: 10px 0px;
+    }
+    #main{
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .slide .slide__content--headings .title {
+        font-size: 20px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+    .slide .slide__content {
+        top: 50%;
+        width: 50%;
+    }
+    .slide .slide__content.slide__content__left {
+        left: 20%;
+        transform: translate(-20%, -50%);
+    }
+
+    .scroll_text_1 h3:before {
+        display: none;
+    }
+
+    .slider,
+    .slide {
+        height: 80vh;
+    }
+
+    .scroll_btm_1 .scroll_text_1 {
+        left: -4%;
+        top: 54%;
+    }
+    .wht-we-do-wrap .para{
+        margin-bottom: 15px;
+    }
+    .wht-slide-wrap {
+        min-height: 456px;
+    }
+
+    #cssmenu > ul > li:last-child > a {
+        color: var(--white-color);
+    }
+
+    .wht-serv .slick-nav.prev-arrow {
+        left: -16%;
+    }
+
+    .wht-serv .slick-nav.prev-arrow {
+        left: -16%;
+    }
+
+    .wht-serv .slick-nav.next-arrow {
+        left: -16%;
+    }
+
+    .p-b p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .service::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+    }
+
+    .serv-box {
+        margin-bottom: 20px;
+    }
+
+    .service {
+        padding: 20px 0px;
+        position: relative;
+    }
+
+    .abt-foremost {
+        padding: 20px 0px 20px;
+    }
+
+    .d-mem-text h4 {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .para3.p-b p {
+        color: var(--semi-black);
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .d-mem-num {
+        right: 10%;
+    }
+
+    .d-mem-icon-wrap {
+        padding: 50px 0px 50px 0px;
+    }
+
+    .wht-slide-wrap {
+        min-height: 370px;
+    }
+
+    .dev-con {
+        margin-top: 30px;
+    }
+
+    .dev-con-box-img {
+        position: absolute;
+        top: -30%;
+        left: 43%;
+        z-index: 10;
+    }
+
+    .dev-con-box {
+        margin-bottom: 124px;
+    }
+
+    .dev-con-box-wrap {
+        padding-top: 80px;
+    }
+
+    .main-btn a {
+        padding: 12px 16px;
+    }
+
+    .inr-bnr-text h1 {
+        font-size: 40px;
+    }
+
+    .serv-inr {
+        padding-top: 50px;
+    }
+
+    .d-mem {
+        padding: 20px 0px;
+    }
+
+    .wht-slide-wrap {
+        margin-bottom: 20px;
+    }
+
+    .wht-slide-wrap {
+        min-height: 438px;
+    }
+
+    .head-1 h2 {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .login_form .toggle {
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    .mn-btn {
+        width: 100%;
+    }
+
+    #cssmenu > ul > li.active a::before {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        bottom: 0px;
+        left: 0;
+    }
+
+    .slide .slide__content {
+        padding: 20px;
+    }
+
+    .t-btn {
+        display: none;
+    }
+
+    #cssmenu,
+    #cssmenu ul,
+    #cssmenu ul li,
+    #cssmenu ul li a,
+    #cssmenu #menu-button {
+        justify-content: center;
+    }
+
+    .app-doc-img img {
+        width: 100%;
+    }
+
+    .bk-app-sec {
+        padding: 50px 0px;
+    }
+
+    /* Dashboard */
+    .my-app-div {
+        margin-bottom: 20px;
+    }
+
+    .profile-div-2 .profile-img {
+        margin: inherit;
+    }
+
+    .sidebar-right {
+        height: auto;
+    }
+
+    .l-navbar {
+        /* top: 32px; */
+        height: 100%;
+    }
+
+    .profile-img {
+        margin: inherit;
+    }
+    .cl-edit {
+        padding: 10px 20px;
+    }
+    .slct-date-time::before {
+        width: 50%;
+    }
+    .add-address-form-box .input-group select {
+        margin-bottom: 10px;
+    }
+    .clinical-box {
+        padding: 10px;
+    }
+    .profile-text {
+        padding: 0px 5px;
+    }
+}
+
+@media (max-width: 991px) {
+    .ftr-sec::before {
+        bottom: 33%;
+        width: 50%;
+    }
+
+    .ftr-top {
+        padding: 30px;
+    }
+
+    .ftr-sec::before {
+        bottom: 17%;
+        width: 85%;
+    }
+    .abt-sec {
+        padding: 50px 0px;
+    }
+    #box {
+        position: absolute;
+        right: auto;
+    }
+    .logo a {
+        width: 90px;
+    }
+    .app-time-1 {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide .slide__content--headings .title {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .slide .slide__content--headings .top-title {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .scroll_btm_1 .scroll_text_1 {
+        left: -7%;
+        top: 58%;
+    }
+
+    .ftr-sec::before {
+        bottom: 17%;
+        width: 95%;
+    }
+
+    .percent_text {
+        font-size: 30px;
+    }
+
+    .aos-animate {
+        -o-transition-property: none !important;
+        -moz-transition-property: none !important;
+        -ms-transition-property: none !important;
+        -webkit-transition-property: none !important;
+        transition-property: none !important;
+
+        -o-transform: none !important;
+        -moz-transform: none !important;
+        -ms-transform: none !important;
+        -webkit-transform: none !important;
+        transform: none !important;
+
+        -webkit-animation: none !important;
+        -moz-animation: none !important;
+        -o-animation: none !important;
+        -ms-animation: none !important;
+        animation: none !important;
+    }
+
+    .abt-inr {
+        position: inherit;
+        top: 20px;
+        left: 0;
+        padding: 10px;
+        border: 15px solid #ee1b24;
+    }
+
+    .abt-inr-sec::before {
+        width: 100%;
+        height: 68%;
+    }
+
+    .abt-inr img {
+        height: 300px;
+    }
+
+    .d-mem {
+        padding: 50px 0px 20px;
+    }
+
+    .abt-inr-text {
+        padding: 20px 0px;
+    }
+
+    .abt-why {
+        padding-top: 10px;
+    }
+
+    .abt-why-box {
+        padding-bottom: 10px;
+    }
+
+    .abt-foremost {
+        padding: 20px 0px 20px;
+    }
+
+    .dev-con-box {
+        margin-bottom: 108px;
+        min-height: 285px;
+    }
+
+    .dev-con-box-wrap {
+        padding-bottom: 10 !important;
+    }
+    .serv-inr-text {
+        padding-top: 20px;
+    }
+
+    .serv-inr-img {
+        padding-top: 20px;
+    }
+
+    .serv-inr {
+        padding-top: 20px;
+    }
+
+    .serv-inr-wrap {
+        padding-bottom: 20px;
+    }
+
+    .logo a {
+        width: 85px;
+    }
+
+    .dev-con-wrap {
+        padding-bottom: 18px;
+    }
+
+    .scroll_btm {
+        display: none;
+    }
+
+    #cssmenu > ul > li.active a::before {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        bottom: 0px;
+        left: 0;
+    }
+
+    .mn-btn {
+        width: 100%;
+    }
+
+    .modal_1 {
+        right: -32%;
+        bottom: -8%;
+        transform: rotate(270deg);
+    }
+
+    .dev-con {
+        padding: 45px 0px 0px;
+    }
+
+    .login-logo-head h1 {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 36px;
+    }
+
+    .login-logo-para p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    /* Dashboard */
+    
+    .content-head h2 {
+        font-size: 26px;
+    }
+    .add-address a {
+        padding: 9px 13px;
+        font-size: 10px;
+    }
+    .content-head-wrap {
+        display: block !important;
+        margin-bottom: 20px;
+    }
+    .location-div {
+        width: 90%;
+    }
+    .header {
+        display: block;
+    }
+    .profile-div-2 {
+        justify-content: left;
+    }
+    .my-app-div {
+        min-height: auto;
+    }
+    .dr-name {
+        margin-bottom: 10px;
+    }
+    .app-time {
+        text-align: center;
+    }
+    .mem-sec {
+        padding: 20px 0px;
+    }
+    .mem-box {
+        padding: 15px 0px;
+    }
+    .price-box {
+        padding: 20px 0px;
+    }
+    .price-box h2 {
+        font-weight: 700;
+        font-size: 38px;
+    }
+    .mem-list ul li {
+        padding-bottom: 15px;
+    }
+    .mem-box-wrap {
+        margin-bottom: 20px;
+    }
+    .profile-img {
+        text-align: center;
+        margin-right: 10px;
+    }
+    .profile-div {
+        padding: 0 0 20px 0;
+    }
+    .app-time h3 {
+        text-align: left;
+    }
+    .app-time {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .app-time-img span {
+        padding-right: 15px;
+        font-size: 22px;
+    }
+    .app-time-wrap {
+        justify-content: start;
+    }
+    .cancel_btn_1_div {
+        padding-top: 0px;
+        text-align: center;
+        margin: 10px 0px;
+    }
+    .profile-div-2 {
+        display: block !important;
+    }
+    .profile-text {
+        padding: 10px 0px 0px;
+    }
+    .cancel_btn_1 {
+        padding: 15px;
+    }
+    .dr-chat-request-img {
+        display: none;
+    }
+    .confirm-btn {
+        padding: 8px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50% !important;
+        margin: 5px 0px;
+    }
+    .get-clear-text h3 {
+        font-size: 24px;
+    }
+    .get-clear-text p {
+        font-size: 16px;
+    }
+    .get-clear-text {
+        width: 100%;
+    }
+    .dr-chat-request-box {
+        min-height: auto;
+    }
+    .find-doc-slide-img {
+        margin: 0 auto;
+    }
+    .find-doc-slide-text{
+        text-align: center;
+    }
+    .pec-div{
+        text-align: center;
+    }
+    .type-div {
+        width: 94%;
+    }
+    .send-div {
+        width: 6%;
+    }
+}
+
+@media (max-width: 767px) {
+    .font_size_line_height {
+        padding: 20px;
+    }
+    .app-doc-img {
+        width: 100%;
+        height: 300px;
+        padding: 10px 0;
+    }
+    .bk-app-sec {
+        padding: 0px 0px;
+    }
+    .logo-d {
+        margin-bottom: 0;
+    }
+    .inner_contact_sec {
+        padding: 20px 0;
+    }
+
+    .slider,
+    .slide {
+        height: 350px;
+    }
+
+    /* .logo {
+        padding: 10px 0px 0px 0px;
+    } */
+
+    .quick_links_ul ul li {
+        padding: 0 2px;
+    }
+
+    .slide .slide__content {
+        width: 95%;
+        top: 50%;
+    }
+    .location-div {
+        padding: 60px 15px 10px;
+    }
+    .logo a img {
+        width: 100%;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .slick-nav:before,
+    .slick-nav:after {
+        display: none;
+    }
+    .slide .slide__content.slide__content__left {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .add-text p,
+    .add-text a {
+        word-break: break-word;
+    }
+
+    .ftr-sec::before {
+        bottom: 22%;
+        width: 95%;
+        display: none;
+    }
+
+    .find-us h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .scroll_text_1 h3 {
+        font-size: 10px;
+    }
+
+    .ftr-link ul li a {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .ftr-top {
+        padding: 30px 10px;
+    }
+    .con-head h4 {
+        font-size: 30px;
+    }
+
+    .slick-nav i {
+        display: none;
+    }
+
+    .wht-serv {
+        margin-top: 0%;
+        margin-left: 0%;
+    }
+
+    .modal_1 {
+        display: none;
+    }
+
+    .head-1 h2 {
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .test-slider .slick-dots {
+        position: absolute;
+        left: 42%;
+        bottom: -6%;
+    }
+    .white_box {
+        padding: 25px 25px;
+    }
+    .after_banner {
+        margin-top: 20px;
+    }
+    .wht-slide-wrap {
+        min-height: 350px;
+    }
+
+    .scroll_text {
+        right: -29px;
+    }
+
+    .scroll_btm_1 .scroll_text_1 {
+        /* left: -17%;
+  top: 48%; */
+        display: none;
+    }
+
+    .ftr-btm p {
+        font-size: 10px;
+        line-height: 14px;
+        text-align: center;
+    }
+
+    .main-btn a {
+        padding: 10px 10px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .inr-bnr-text h1 {
+        font-size: 20px;
+    }
+
+    .abt-inr-sec::before {
+        height: 100%;
+    }
+
+    .dev-con-box-img {
+        left: 32%;
+    }
+
+    .d-mem {
+        padding: 80px 0px 0px;
+    }
+
+    .abt-inr {
+        top: 62px;
+    }
+
+    .test-box-1 {
+        padding: 10px;
+    }
+
+    .dev-con {
+        padding: 20px 0px;
+    }
+
+    .team-img img {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+    }
+
+    .abt-inr img {
+        width: 100%;
+        height: 326px;
+        object-fit: cover;
+    }
+
+    .d-mem-icon-box {
+        padding-bottom: 40px;
+    }
+
+    .d-mem-num {
+        position: absolute;
+        top: -14%;
+        right: 30%;
+    }
+
+    .para3.p-b p {
+        font-size: 19px;
+        line-height: 22px;
+    }
+
+    .d-mem-icon-wrap {
+        padding: 20px 0px 20px 0px;
+    }
+
+    .bl-text h3 {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .bl-lft img {
+        width: 100%;
+    }
+
+    .date-box {
+        padding-top: 0 !important;
+    }
+
+    .blog-sec {
+        padding: 20px 0px;
+    }
+
+    .bl-text h3::before {
+        left: -9px;
+    }
+
+    .blog-inr {
+        padding: 20px 0px;
+    }
+
+    .tag-list li {
+        width: 80px;
+        height: 45px;
+    }
+
+    .blg-d-1 .head-2 h2 {
+        font-weight: 700;
+        font-size: 22px;
+    }
+
+    .dev-con-box {
+        margin-bottom: 110px;
+    }
+
+    .para1 p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .head-1 {
+        padding-bottom: 0 !important;
+    }
+
+    .abt-inr-sec {
+        padding-bottom: 40px;
+    }
+
+    .dev-con-box-l {
+        margin-bottom: 0;
+    }
+
+    .ftr-btm ul li a {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .bdr_1 {
+        border: none;
+    }
+
+    .ftr-btm ul li {
+        padding-right: 0px;
+    }
+
+    .d-mem-serv {
+        padding: 0;
+    }
+
+    .blog-rit {
+        padding-bottom: 10px;
+    }
+
+    .bl-lft {
+        padding-right: 20px;
+        width: 30%;
+    }
+
+    .blog-box-img {
+        padding-bottom: 10px;
+    }
+
+    .bl-text {
+        width: 100%;
+    }
+
+    .blog-box-1 {
+        padding-bottom: 10px;
+    }
+
+    .res-head h1 {
+        font-size: 24px;
+    }
+
+    .login-logo-head h1 {
+        font-size: 24px;
+    }
+
+    .login-text-2 p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .login-text-2 p a {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .abt-sec {
+        clip-path: initial;
+        padding: 20px 0px;
+    }
+
+    .wht-slide-icon-div {
+        margin: 0 auto;
+    }
+
+    .wht-slide-wrap {
+        text-align: center;
+    }
+
+    .sub-btn {
+        width: 100%;
+    }
+
+    .wht-we-do {
+        padding: 50px 0px 50px;
+    }
+
+    .cl-dc-bx {
+        text-align: center;
+    }
+
+    .slot-1 {
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .slot-1 h3 {
+        font-size: 14px;
+    }
+
+    .clinic-sec {
+        padding: 20px 0px;
+    }
+
+    .chat-sec-left-img {
+        display: none;
+    }
+
+    .chat-sec-left-text p {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .chat-sec-left-text h4 {
+        font-size: 16px;
+    }
+
+    .type-div .form-group {
+        margin: 0px 4px;
+    }
+
+    .link-div i {
+        font-size: 16px;
+    }
+
+    .send-div {
+        width: 35px;
+        height: 35px;
+    }
+
+    .type-div .form-group input {
+        padding: 10px 20px;
+    }
+
+    .cvv-div {
+        justify-content: start;
+    }
+
+    .cvv-date .form-control {
+        margin-bottom: 10px;
+    }
+
+    .on-modal .modal-header h5 {
+        font-size: 16px;
+    }
+
+    .on-modal-2 .payment-form {
+        padding: 0px 0px;
+    }
+
+    .find-doc-slide-img {
+        margin: 0 auto;
+    }
+
+    .slot-sec {
+        padding-bottom: 10px;
+    }
+
+    /* Dashboard */
+    .l-navbar {
+        left: 0%;
+        width: 0;
+        transform: translate(-100%, 0px);
+        transition: all ease-in 0.3s;
+        padding: 0;
+    }
+
+    .l-navbar.show {
+        position: absolute;
+        width: 90%;
+        transform: translate(0%, 0px);
+        transition: all ease-in 0.3s;
+    }
+    .bor_mobile{
+        border-bottom: 1px solid #000;
+        position: relative;
+    }
+    .header {
+        top: 30px;
+        right: 75px;
+        z-index: 1;
+        width: 30px;
+        left: auto;
+        padding: 0;
+        height: auto;
+    }
+
+    .body-pd {
+        padding-left: 0;
+    }
+
+    .basic-plan h2 {
+        font-size: 14px;
+    }
+
+    .basic-plan h4 {
+        font-size: 20px;
+    }
+
+    .basic-plan h3 {
+        font-size: 14px;
+    }
+
+    .plan-e p {
+        font-size: 16px;
+    }
+
+    .content-head h2 {
+        font-size: 16px;
+        text-align: left;
+        padding-bottom: 10px;
+    }
+
+    .clinicl-head h3 {
+        font-size: 16px;
+    }
+
+    .for-vdo h3 {
+        font-size: 16px;
+    }
+
+    .for-vdo h4 {
+        font-size: 16px;
+    }
+
+    .notice-p p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .notice-div-wrap {
+        margin-bottom: 15px;
+    }
+
+    .my-profile-div {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-right {
+        margin-top: 5%;
+    }
+
+    .nav_name {
+        font-size: 14px;
+    }
+
+    .sub-head h4 {
+        font-size: 10px;
+    }
+
+    .nav_link {
+        margin-bottom: 0;
+    }
+
+    .add-address-form-box .input-group select {
+        margin-bottom: 10px;
+    }
+
+    .slct-date-time::before {
+        display: none;
+    }
+    .location .address_loa span {
+        font-size: 10px;
+    }
+    #main {
+        padding: 0px 15px;
+    }
+    .sidenav a {
+        padding: 8px;
+    }
+    .get-location {
+        padding: 0px 0px;
+    }
+    .search_box .search_field {
+        padding: 5px 0px;
+    }
+    .search_box .search_field .input {
+        padding: 5px 0px;
+    }
+    .search_box .search_field .input {
+        padding-left: 10px;
+        font-size: 12px;
+    }
+    .get-location-text button {
+        font-size: 14px;
+    }
+    .nav_link {
+        padding: 10px 15px 15px;
+    }
+    .my-app-head h3 {
+        font-size: 14px;
+    }
+    .my-app-head h4 {
+        font-size: 14px;
+    }
+    .nav.nav-tabs .nav-link {
+        font-size: 12px;
+        margin: 0px 2px;
+        padding: 5px 7px;
+    }
+    .nav.nav-tabs {
+        justify-content: center;
+    }
+    .congratulation-sec {
+        padding: 0px 0px 50px;
+    }
+    .congo-text h2 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .congo-text h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .slide .slide__content {
+    }
+    .main_manu {
+        padding: 0px 0px;
+    }
+    .chat-sec-wrap {
+        padding: 10px;
+    }
+    .cl-slot-wrap{
+        padding: 15px;
+    }
+    .cl-tm-slot {
+        padding-bottom: 20px;
+    }
+    .cl-dc-bx{
+        padding: 15px;
+    }
+    .chat-pop {
+        width: 100%;
+    }
+    .frnd-srl {
+		max-height: 200px!important;
+	}
+    .inr-bnr-img {
+        height: auto;
+    }
+    /* .location .address_loa {
+        width: 50%;
+    } */
+    .location .address_loa span#status {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* display: -webkit-box; */
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    .add-loc-1{
+        padding: 3px 0px 3px;
+        background: #ffeaea;
+    }
+    .main_manu{
+
+    }
+    .search-doc {
+        padding: 20px 0px 0;
+    }
+    .doc-list-head {
+        padding: 20px 0px;
+    }
+    .search-text h3 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .doc-spl-wrap-box {
+        padding-bottom: 0px;
+    }
+    .slot-div-wrap{
+        margin-bottom: 15px;
+    }
+    .chat-sec {
+        padding-bottom: 10px;
+    }
+    .search-box {
+        margin-bottom: 10px;
+    }
+    .dr-name-img {
+        width: 50px;
+        height: 50px!important;
+    }
+    .manage-clinic-div {
+        padding: 20px 20px;
+        margin: 0px 5px 10px 5px;
+    }
+    .login a {
+        font-size: 11px;
+    }
+    .profile-text h2 {
+        font-size: 23px;
+        line-height: 24px;
+    }
+    .profile-img {
+        width: 70px;
+        height: 70px;
+    }
+    .profile-text a {
+        font-size: 14px;
+    }
+    .pro-cam-img-1 {
+        position: absolute;
+        right: -15px;
+        bottom: 5%;
+        width: 35px;
+        height: 35px;
+    }
+    .profile-form {
+        padding: 20px 0;
+    }
+    .add {
+        padding-bottom: 13px;
+    }
+    .add-icon{
+        padding-right: 12px;
+    }
+    .add-text h4 {
+        font-size: 14px !important;
+        letter-spacing: 1px;
+        line-height: 17px;
+        margin-bottom: 3px !important;
+    }
+    .notice-date h4 {
+        font-size: 14px;
+    }
+    .msn-tab {
+        padding: 20px 10px;
+    }
+    a .delete-account h2 {
+        font-size: 14px;
+        line-height: 1;
+    }
+    .ftr-frm form .form-group .form-control {
+        margin-bottom: 10px;
+    }
+    .tab-pane {
+        padding: 14px;
+    }
+    a .delete-account {
+        padding: 7px 10px;
+    }
+
+}
+
+@media (max-width: 375.98px) {
+    .d-mem-num {
+        right: 24%;
+    }
+    .login a i {
+        width: 16px;
+        height: 16px;
+        padding: 4px;
+        font-size: 8px;
+    }
+}

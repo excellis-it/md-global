@@ -1,0 +1,60 @@
+name: 'Medical Stuff Dashboard'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor/dashboard
+    metadata:
+      groupName: 'Medical Stuff Dashboard'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff Dashboard'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "message": "Dashboard",
+          "data": {
+          "chat_request_count": 0,
+          "booking_history_count": 0,
+          "clinic_count": 0,
+          "chat_request": []
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 500
+        content: |-
+          {
+          "status": false,
+          "message": "Something went wrong",
+          "error": "..."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

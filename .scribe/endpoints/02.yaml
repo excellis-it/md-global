@@ -1,0 +1,440 @@
+name: 'Home Page Api''s'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/symptoms
+    metadata:
+      groupName: 'Home Page Api''s'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Symptoms Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": true,
+          "statusCode": 200,
+          "data": [
+              {
+                  "id": 2,
+                  "specialization_id": 2,
+                  "symptom_name": "Oral Piercing Infection",
+                  "symptom_description": "<p>Visit your doctor for joint pain, sprains, arthritis, and other bone pains.</p>",
+                  "symptom_image": "symptoms/J1Qbab05PP4gVTbBJ3bJ5bW6up46R99VaXpp4uXi.png",
+                  "symptom_status": 1,
+                  "created_at": "2023-06-06T07:13:51.000000Z",
+                  "updated_at": "2023-06-06T07:13:51.000000Z"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+          "statusCode": 201,
+          "message": "No Symptoms Found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/specializations
+    metadata:
+      groupName: 'Home Page Api''s'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Specialization Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": true,
+           "statusCode": 200,
+           "data": [
+               {
+                   "id": 3,
+                   "name": "Dermatologist",
+                   "slug": "dermatologist",
+                   "image": "specializations/V2TlHIoJvN7dL2bYdkUoh2GYhwitQotuohwGNqKe.png",
+                   "description": "Visit your doctor for joint pain, sprains, arthritis, and other bone pains.",
+                   "status": 1,
+                   "created_at": "2023-06-06T10:55:47.000000Z",
+                   "updated_at": "2023-06-06T10:55:47.000000Z"
+               }
+             ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+           "statusCode": 201,
+           "message": "No Specialization Found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/all-doctors-by-location
+    metadata:
+      groupName: 'Home Page Api''s'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'All doctors Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": true,
+           "statusCode": 200,
+           "data": [
+               {
+                   "id": 13,
+                   "name": "Shreeja Sadhukhan",
+                   "email": "shreeja@yopmail.com",
+                   "phone": "7475850123",
+                   "email_verified_at": "null",
+                   "profile_picture": "doctor/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg",
+                   "year_of_experience": "3",
+                   "license_number": "null",
+                   "location": "Purba Bardhaman",
+                   "gender": "Female",
+                   "age": "22",
+                   "status": 1,
+                   "fcm_token": null,
+                   "created_at": "2023-06-06T10:55:47.000000Z",
+                   "updated_at": "2023-06-06T10:55:47.000000Z",
+                   "deleted_at": null
+               }
+             ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+           "statusCode": 201,
+           "message": "NoMedical Staff Found in your area!"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctors
+    metadata:
+      groupName: 'Home Page Api''s'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff List as per symptoms/specializations Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: 'The type of the search. example - symptoms, specializations, all'
+        required: true
+        example: dolores
+        type: string
+        enumValues: []
+        custom: []
+      slug:
+        name: slug
+        description: 'The slug of the search. example - dermatologist, oral-piercing-infection'
+        required: true
+        example: vero
+        type: string
+        enumValues: []
+        custom: []
+      filter:
+        name: filter
+        description: 'The filter of the search. example - all, clinic'
+        required: true
+        example: minus
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      type: dolores
+      slug: vero
+      filter: minus
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": true,
+           "statusCode": 200,
+           "data": [
+               {
+                   "id": 13,
+                   "name": "Shreeja Sadhukhan",
+                   "email": "shreeja@yopmail.com",
+                   "phone": "7475850123",
+                   "email_verified_at": "null",
+                   "profile_picture": "doctor/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg",
+                   "year_of_experience": "3",
+                   "license_number": "null",
+                   "location": "Purba Bardhaman",
+                   "gender": "Female",
+                   "age": "22",
+                   "status": 1,
+                   "fcm_token": null,
+                   "created_at": "2023-06-06T10:55:47.000000Z",
+                   "updated_at": "2023-06-06T10:55:47.000000Z",
+                   "deleted_at": null
+               }
+             ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+          "status": false,
+           "statusCode": 201,
+           "message": "NoMedical Staff Found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/search-doctors
+    metadata:
+      groupName: 'Home Page Api''s'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff/Service Centers List as per search Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": true,
+           "statusCode": 200,
+           "data": [
+               {
+                   "id": 13,
+                   "name": "Shreeja Sadhukhan",
+                   "email": "shreeja@yopmail.com",
+                   "phone": "7475850123",
+                   "email_verified_at": "null",
+                   "profile_picture": "doctor/Vd1tp4kQptLxMkCVW5M0q8F9hE2KpEEedIi9LxNz.jpg",
+                   "year_of_experience": "3",
+                   "license_number": "null",
+                   "location": "Purba Bardhaman",
+                   "gender": "Female",
+                   "age": "22",
+                   "status": 1,
+                   "fcm_token": null,
+                   "created_at": "2023-06-06T10:55:47.000000Z",
+                   "updated_at": "2023-06-06T10:55:47.000000Z",
+                   "deleted_at": null
+               }
+             ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "status": false,
+           "statusCode": 404,
+           "message": "NoMedical Staff or Service Centers Found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/store-location
+    metadata:
+      groupName: 'Home Page Api''s'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Location Store Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      latitude:
+        name: latitude
+        description: 'The latitude of the location.'
+        required: true
+        example: possimus
+        type: string
+        enumValues: []
+        custom: []
+      longitude:
+        name: longitude
+        description: 'The longitude of the location.'
+        required: true
+        example: consequuntur
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      latitude: possimus
+      longitude: consequuntur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": true,
+           "statusCode": 200,
+           "data": [
+               {
+                   "id": 23,
+                   "user_id": 14,
+                   "session_id": null,
+                   "ip_address": "127.0.0.1",
+                   "address": "J92M+P72, Kolkata Station Rd, Belgachia, Kolkata, West Bengal 700004, India",
+                   "latitude": "22.5764753",
+                   "longitude": "88.4306861",
+                   "created_at": "2023-06-06T10:55:47.000000Z",
+                   "updated_at": "2023-06-06T10:55:47.000000Z"
+               }
+             ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

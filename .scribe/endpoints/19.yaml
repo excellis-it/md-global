@@ -1,0 +1,308 @@
+name: 'Patient Booking'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/doctor-details
+    metadata:
+      groupName: 'Patient Booking'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Medical Stuff details Api'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      doctor_id:
+        name: doctor_id
+        description: 'The id of the doctor.'
+        required: true
+        example: delectus
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      doctor_id: delectus
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": true,
+            "statusCode": 200,
+            "data": {
+                "doctor": {
+                    "id": 4,
+                    "name": "James Bond",
+                    "email": "james@yopmail.com",
+                    "phone": "7485968695",
+                    "gender": "Male",
+                    "age": "2000-02-10",
+                    "license_number": "DKM-74859686",
+                    "profile_picture": "doctor/V0pUwsFgvg2bMGnRLx3ctmEhxaRLIIXE7SS3g5BJ.jpg",
+                    "specializations": [
+                        {
+                            "id": 2,
+                            "name": "Dentist",
+                        }
+                    ]
+                },
+                "clinic": [
+                    {
+                        "id": 5,
+                        "user_id": 4,
+                        "clinic_name": "Christan Medical Collage (CMC)",
+                        "clinic_address": "Rajarhat, Rajarhat Main Road, Chinar Park, Kalipark, Tegharia, Gopalpur I, Kolkata, West Bengal, India",
+                        "clinic_phone": "7412589635",
+                        "longitute": "88.4528608",
+                        "latitute": "22.6343954",
+                        "distance": 6.830848254188763
+                    },
+
+                ]
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/appointment-store
+    metadata:
+      groupName: 'Patient Booking'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store Appointment'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      clinic_id:
+        name: clinic_id
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        custom: []
+      appointment_date:
+        name: appointment_date
+        description: ''
+        required: true
+        example: sapiente
+        type: string
+        enumValues: []
+        custom: []
+      appointment_time:
+        name: appointment_time
+        description: ''
+        required: true
+        example: fugiat
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      clinic_id: voluptas
+      appointment_date: sapiente
+      appointment_time: fugiat
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+             "message": "Appointment booked successfully!",
+            "status": true,
+              "data": {
+                   "user_id": 1,
+                   "doctor_id": 4,
+                   "clinic_id": 7,
+                   "appointment_id": "000000",
+                   "appointment_date": "2021-08-02",
+                   "appointment_time": "11:00 AM",
+                    "appointment_status": "Done",
+                    "booking_time": "2021-08-02 12:00:00",
+                    "clinic_name": "Life Medical",
+                     "clinic_address": "Park Street, Mullick Bazar, Beniapukur, Kolkata, West Bengal, India",
+                   "clinic_phone": "7894561230",
+                   "updated_at": "2021-08-02T12:00:00.000000Z",
+                   "created_at": "2021-08-02T12:00:00.000000Z",
+                   "id": 1,
+                   "user": {
+                       "id": 1,
+                       "name": "Shilpi Chaki",
+                       "email": "shilpi@mailinator.com",
+                       "email_verified_at": null,
+                       "profile_picture": "user/5HiPk9oN9cQCNNKdzmBgvNLHSL8u7bbHncdrPE91.png",
+                       "phone": "7894561230",
+                       "year_of_experience": "4",
+                       "license_number": "UPS74856963",
+                       "location": "Kolkata",
+                       "gender": "female",
+                       "age": "2001-01-30",
+                       "status": 1,
+                       "fcm_token": "fTcKacaIV3mJaU4VbJ_4Ib:APA91bHgCcot6OOpAlysNgDKq54K9PnU6PjDM3tHdiWFm5KpPXDnVVfcfTJV2C4Q6wKk056fIp6zgOLbEU1DhAvN5SQqZGg0ew7qjKN_FAXyd9ORER4vMhjf1qLc9pY32gI7ZGIJLAaI",
+                       "created_at": "2021-07-25T08:53:27.000000Z",
+                       "updated_at": "2021-07-25T08:53:27.000000Z",
+                       "deleted_at": null
+                   }
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/visitDate
+    metadata:
+      groupName: 'Patient Booking'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Service Centers Date and Time Slot'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      clinic_id:
+        name: clinic_id
+        description: ''
+        required: true
+        example: quo
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      clinic_id: quo
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Service Centers Details",
+          "status": true,
+          "data": [
+              {
+                  "id": 46,
+                  "slot_date": "2023-09-11",
+                  "slot_available": 2
+              },
+              {
+                  "id": 48,
+                  "slot_date": "2023-09-14",
+                  "slot_available": 5
+              }
+              ]
+           }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: |-
+          {
+           "error": "The clinic id field is required."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/clinicVisitSlot
+    metadata:
+      groupName: 'Patient Booking'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Service Centers Visit available Slot Time'
+      description: '@bodyParam slot_id string required The id of the slot.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            {
+             "message": "Service Centers Details",
+             "status": true,
+             "data": [
+                 {
+                     "id": 46,
+                     "slot_date": "2023-09-11",
+                     "slot_available": 2
+                 },
+                 {
+                     "id": 48,
+                     "slot_date": "2023-09-14",
+                     "slot_available": 5
+                 },
+             ]
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
